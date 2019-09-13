@@ -46,8 +46,14 @@ public class GearTransmissionTest {
 	@Test
 	@DisplayName("Initial state")
 	void testInitialState() {
-		assertThat(transmission.getCurrentGear(), is(nullValue()));
-		assertThat(transmission.getMaxGear(), is(equalTo(GearTransmissionTest.MAXGEAR)));
+		assertAll( //
+				() -> {
+					assertThat(transmission.getCurrentGear(), is(nullValue()));
+				}, //
+				() -> {
+					assertThat(transmission.getMaxGear(), is(equalTo(GearTransmissionTest.MAXGEAR)));
+				} //
+		);
 	}
 
 	@Test
