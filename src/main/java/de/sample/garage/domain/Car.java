@@ -1,6 +1,5 @@
 package de.sample.garage.domain;
 
-import de.sample.garage.domain.errorhandling.ErrorHandler;
 import de.sample.garage.domain.exception.ShiftNotPossibleException;
 
 /**
@@ -75,18 +74,19 @@ public class Car {
             throw new IllegalStateException("Clutch is not pressed. Press the clutch to shift.");
         }
 
-        try {
-            geartransmission.shiftUp();
-        } catch (ShiftNotPossibleException e) {
-            ErrorHandler.handleError(e);
-        }
+        // Don't do that:
+        // try {
+        geartransmission.shiftUp();
+        // } catch (ShiftNotPossibleException e) {
+        //     ErrorHandler.handleError(e);
+        // }
     }
 
     /**
      * Drives the car.
      */
     public void drive() {
-        if (gastank.isEmpty() && !engine.isEngineStarted()) {
+        if (!gastank.isEmpty() && !engine.isEngineStarted()) {
             engine.start();
         }
     }
