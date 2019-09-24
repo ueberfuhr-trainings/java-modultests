@@ -4,7 +4,7 @@ Dieses Projekt enthält eine kleine Beispielanwendung, die durch automatisierte 
 
 ## Allgemeines zur Verwendung
 
-Umsetzt werden die Arbeiten am Projekt im master-Branch. Vorlagen und Lösungen werden in Feature-Branches bereitgestellt. Es ist möglich, per `git checkout` auf den Branch zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlösung direkt in den Master zu kopieren.
+Umsetzt werden die Arbeiten am Projekt im `master`-Branch. Vorlagen und Lösungen werden in Feature-Branches (`feature/*`) bereitgestellt. Es ist möglich, per `git checkout` auf den Branch zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlösung direkt in den Master zu kopieren.
 
 ## Aufgabenstellungen
 
