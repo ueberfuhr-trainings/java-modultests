@@ -29,6 +29,12 @@ Umsetzt werden die Arbeiten am Projekt im `master`-Branch. Vorlagen und Lösunge
 
 (Musterlösung siehe Branch `feature/code-coverage`)
 
+### (Optional) Data Driven Test
+
+Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test. So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschalten werden.
+
+(Musterlösung siehe Branch `feature/test-data-driven`)
+
 ### (Optional) JUnit4-Beispiel
 
 Ein Beispiel für einen Test nach JUnit4-Vorgaben findest Du im Branch `feature/junit4-sample`.
