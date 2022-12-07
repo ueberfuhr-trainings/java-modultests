@@ -26,7 +26,7 @@ public class VendorSamplesInitializer {
             service.save(
               Vendor.builder()
                 .shortName("OPEL")
-                .name("Opel AUtomobile GmbH")
+                .name("Opel Automobile GmbH")
                 .city("Rüsselsheim")
                 .build()
             );
