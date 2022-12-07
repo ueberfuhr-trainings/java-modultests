@@ -1,4 +1,4 @@
-package de.ars.schulung.tests.garage.errorhandling;
+package de.sample.garage.domain.errorhandling;
 
 import javax.swing.JOptionPane;
 
