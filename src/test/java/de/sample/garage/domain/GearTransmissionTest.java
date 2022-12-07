@@ -45,7 +45,7 @@ class GearTransmissionTest {
     @Test
     @DisplayName("should throw exception when shifting up too much")
     void shouldThrowShiftNotPossibleException() throws ShiftNotPossibleException {
-        for (int i = 0; i < GearTransmissionTest.MAXGEAR; i++) {
+        for (int i = 1; i <= GearTransmissionTest.MAXGEAR; i++) {
             transmission.shiftUp();
         }
         assertThrows(ShiftNotPossibleException.class, transmission::shiftUp);
