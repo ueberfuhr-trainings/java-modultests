@@ -21,7 +21,7 @@ zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlö
 
 (Musterlösung siehe Branch `feature/test-simple`)
 
-### 1. Mocking
+### 2. Mocking
 
 1. Öffne die Klasse `Car`. Diese hat Abhängigkeiten zu `GearTransmission`, `Engine`, 
    `Clutch` und `GasTank`. Beachte den Konstruktor, mit dem diese Abhängigkeiten von 
@@ -31,29 +31,16 @@ zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlö
 
 (Musterlösung siehe Branch `feature/test-mockito`)
 
-### 1. Code Coverage
+### 3. Code Coverage
 
 1. Prüfe, ob Deine Entwicklungsumgebung Tests mit Messung der Code Coverage ausführen kann.
 2. Erweitere den Maven-Build um Messung der Code Coverage während des automatisierten Builds.
 
 (Musterlösung siehe Branch `feature/code-coverage`)
 
-### 1. Data Driven Test
+### 4. Data Driven Test
 
 Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test.
 So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschalten werden.
 
 (Musterlösung siehe Branch `feature/test-data-driven`)
-
-
-### t.b.d.
-
-- Spock
-- Cucumber
-- Spring Boot 2.x (WebMvcTest, DataJpaTest)
-  - simple
-  - with slices and optimization
-- Spring Boot 3.x
-  - simple
-  - with slices and optimization
-
