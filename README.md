@@ -21,7 +21,13 @@ zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlö
 
 (Musterlösung siehe Branch `feature/test-simple`)
 
-### 2. Mocking
+### 2. AssertJ
+
+Ersetze die bestehenden JUnit Assertions durch AssertJ Assertions. Worin besteht der Vorteil bei der Verwendung von AssertJ?
+
+(Musterlösung siehe Branch `feature/test-simple-assertj`)
+
+### 3. Mocking
 
 1. Öffne die Klasse `Car`. Diese hat Abhängigkeiten zu `GearTransmission`, `Engine`, 
    `Clutch` und `GasTank`. Beachte den Konstruktor, mit dem diese Abhängigkeiten von 
@@ -31,14 +37,14 @@ zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlö
 
 (Musterlösung siehe Branch `feature/test-mockito`)
 
-### 3. Code Coverage
+### 4. Code Coverage
 
 1. Prüfe, ob Deine Entwicklungsumgebung Tests mit Messung der Code Coverage ausführen kann.
 2. Erweitere den Maven-Build um Messung der Code Coverage während des automatisierten Builds.
 
 (Musterlösung siehe Branch `feature/code-coverage`)
 
-### 4. Data Driven Test
+### 5. Data Driven Test
 
 Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test.
 So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschalten werden.
