@@ -4,7 +4,7 @@ Dieses Projekt enthält eine kleine Beispielanwendung, die durch automatisierte 
 
 ## Allgemeines zur Verwendung
 
-Umsetzt werden die Arbeiten am Projekt im `master`-Branch. Vorlagen und Lösungen werden in Feature-Branches (`feature/*`) bereitgestellt. Es ist möglich, per `git checkout` auf den Branch zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlösung direkt in den Master zu kopieren.
+Umsetzt werden die Arbeiten am Projekt im `main`-Branch. Vorlagen und Lösungen werden in Feature-Branches (`feature/*`) bereitgestellt. Es ist möglich, per `git checkout` auf den Branch zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlösung direkt in den Master zu kopieren.
 
 ## Aufgabenstellungen
 
@@ -22,19 +22,28 @@ Umsetzt werden die Arbeiten am Projekt im `master`-Branch. Vorlagen und Lösunge
 
 (Musterlösung siehe Branch `feature/test-mockito`)
 
-### (Optional) Code Coverage
+### Code Coverage
 
-1.  Prüfe, ob Deine Entwicklungsumgebung Tests mit Messung der Code Coverage ausführen kann. (Eclipse: *Coverage As > JUnit Test*)
+1.  Prüfe, ob Deine Entwicklungsumgebung Tests mit Messung der Code Coverage ausführen kann.
 2. Erweitere den Maven-Build um Messung der Code Coverage während des automatisierten Builds.
 
 (Musterlösung siehe Branch `feature/code-coverage`)
 
-### (Optional) Data Driven Test
+### Data Driven Test
 
 Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test. So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschalten werden.
 
 (Musterlösung siehe Branch `feature/test-data-driven`)
 
-### (Optional) JUnit4-Beispiel
 
-Ein Beispiel für einen Test nach JUnit4-Vorgaben findest Du im Branch `feature/junit4-sample`.
+### t.b.d.
+
+- Spock
+- Cucumber
+- Spring Boot 2.x (WebMvcTest, DataJpaTest)
+  - simple
+  - with slices and optimization
+- Spring Boot 3.x
+  - simple
+  - with slices and optimization
+
