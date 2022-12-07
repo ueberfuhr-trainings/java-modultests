@@ -54,7 +54,26 @@ So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durc
 ### 6. JUnit 5 Extension
 
 Implementiere eine JUnit 5 Extension, die vor und nach der Ausführung eines Tests einen
-Zeitstempel nimmt, und nach dem Test die Differenz auf die Konsole loggt.
+Zeitstempel nimmt, und nach dem Test die Differenz auf die Konsole loggt. Stelle für das leichtere 
+Einbinden der Extension eine Meta Annotation bereit.
 
 (Musterlösung siehe Branch `feature/extension` - basiert auf Branch `feature/test-simple`)
+
+### 7. JUnit 5 Tags
+
+Nutze einen Tag (`perf-m` o.ä.), um alle Tests, die mit eben erstellter Extension ausgeführt werden, ein- bzw. auszuschließen.
+Beim Aufruf von Maven sollten diese Tags dann wie folgt ein- bzw. ausgeschlossen werden können:
+
+```bash
+# only those tests
+mvn clean test -Dgroups=perf-m
+# all tests except those
+mvn clean test -DexcludedGroups=perf-m
+```
+
+Optional: Ergänze ein Profil `only-perf-m` in der `pom.xml` für die einfachere Ausführung per 
+
+```bash
+mvn clean test -Ponly-perf-m
+```
 
