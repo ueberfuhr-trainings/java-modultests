@@ -55,7 +55,8 @@ So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durc
 
 Implementiere eine JUnit 5 Extension, die vor und nach der Ausführung eines Tests einen
 Zeitstempel nimmt, und nach dem Test die Differenz auf die Konsole loggt. Stelle für das leichtere 
-Einbinden der Extension eine Meta Annotation bereit.
+Einbinden der Extension eine Meta Annotation bereit. Diese kann auf Methodenebene für einzelne Tests,
+aber auch auf Klassenebene für alle Testmethoden verwendet werden.
 
 (Musterlösung siehe Branch `feature/extension` - basiert auf Branch `feature/test-simple`)
 
