@@ -3,12 +3,14 @@ package de.sample.garage.domain;
 import de.sample.garage.domain.exception.ShiftNotPossibleException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@ExtendWith(PerformanceMeasuringExtension.class)
 class GearTransmissionTest {
 
     private static final int MAXGEAR = 6;
