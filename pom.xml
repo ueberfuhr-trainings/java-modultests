@@ -71,4 +71,22 @@
         </pluginManagement>
     </build>
 
+    <profiles>
+        <profile>
+            <id>only-perf-m</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <configuration>
+                                <groups>perf-m</groups>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
+
 </project>

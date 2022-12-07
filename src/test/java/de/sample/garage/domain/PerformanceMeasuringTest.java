@@ -1,5 +1,6 @@
 package de.sample.garage.domain;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.lang.annotation.Documented;
@@ -14,5 +15,6 @@ import java.lang.annotation.Target;
 @Documented
 @Inherited
 @ExtendWith(PerformanceMeasuringExtension.class)
+@Tag("perf-m")
 public @interface PerformanceMeasuringTest {
 }
