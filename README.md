@@ -19,13 +19,13 @@ zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlö
    und die Methode `shiftUp()`.
 2. Implementiere diese Testfälle.
 
-(Musterlösung siehe Branch `feature/test-simple`)
+(Musterlösung siehe Branch `feature/test-simple` - basiert auf Branch `main`)
 
 ### 2. AssertJ
 
 Ersetze die bestehenden JUnit Assertions durch AssertJ Assertions. Worin besteht der Vorteil bei der Verwendung von AssertJ?
 
-(Musterlösung siehe Branch `feature/test-simple-assertj`)
+(Musterlösung siehe Branch `feature/test-simple-assertj` - basiert auf Branch `feature/test-simple`)
 
 ### 3. Mocking
 
@@ -35,18 +35,18 @@ Ersetze die bestehenden JUnit Assertions durch AssertJ Assertions. Worin besteht
    (*Design for Test*)
 2. Leite für die Methode `fillUp(double)` Testfälle her und implementiere diese.
 
-(Musterlösung siehe Branch `feature/test-mockito`)
+(Musterlösung siehe Branch `feature/test-mockito` - basiert auf Branch `feature/test-simple-assertj`)
 
 ### 4. Code Coverage
 
 1. Prüfe, ob Deine Entwicklungsumgebung Tests mit Messung der Code Coverage ausführen kann.
 2. Erweitere den Maven-Build um Messung der Code Coverage während des automatisierten Builds.
 
-(Musterlösung siehe Branch `feature/code-coverage`)
+(Musterlösung siehe Branch `feature/code-coverage` - basiert auf Branch `main`)
 
 ### 5. Data Driven Test
 
 Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test.
 So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschalten werden.
 
-(Musterlösung siehe Branch `feature/test-data-driven`)
+(Musterlösung siehe Branch `feature/test-data-driven` - basiert auf Branch `feature/test-simple-assertj`)
