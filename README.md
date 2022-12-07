@@ -11,7 +11,7 @@ Feature-Branches (`feature/*`) bereitgestellt. Es ist möglich, per `git checkou
 zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlösung direkt in den
 `main`-Branch zu kopieren.
 
-## Aufgabenstellungen
+## Aufgabenstellungen (Plain Java)
 
 ### 1. Einfache Modultests
 
@@ -86,3 +86,8 @@ Schreibe einen Test für `GasStationAttendant`, bei dem sichergestellt wird, das
 die gewünschte Füllmenge erreicht wird.
 
 (Musterlösung siehe Branch `feature/argument-captor` - basiert auf Branch `main`)
+
+## Aufgabenstellungen (Spring Boot)
+
+Merge für die Erweiterung des Projektes den Branch `feature/spring-boot-2` (Java 11) oder `feature/spring-boot-3` (Java 17) in den
+`main`-Branch.
