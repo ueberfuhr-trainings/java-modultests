@@ -1,10 +1,9 @@
-package de.ars.schulung.tests.garage.exception;
+package de.sample.garage.domain.exception;
 
 /**
  * This exception occurs when the driving the distance is not possible.
  */
 public class DistanceNotPossibleException extends RuntimeException {
-	private static final long serialVersionUID = -7698604536335492085L;
 
 	private final int distance;
 
