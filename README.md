@@ -61,7 +61,7 @@ Einbinden der Extension eine Meta Annotation bereit.
 
 ### 7. JUnit 5 Tags
 
-Nutze einen Tag (`perf-m` o.ä.), um alle Tests, die mit eben erstellter Extension ausgeführt werden, ein- bzw. auszuschließen.
+Nutze einen Tag (`perf-m` o. ä.), um alle Tests, die mit eben erstellter Extension ausgeführt werden, ein- bzw. auszuschließen.
 Beim Aufruf von Maven sollten diese Tags dann wie folgt ein- bzw. ausgeschlossen werden können:
 
 ```bash
@@ -77,3 +77,4 @@ Optional: Ergänze ein Profil `only-perf-m` in der `pom.xml` für die einfachere
 mvn clean test -Ponly-perf-m
 ```
 
+(Musterlösung siehe Branch `feature/tags` - basiert auf Branch `feature/extension`)
