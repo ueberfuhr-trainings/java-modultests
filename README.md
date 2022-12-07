@@ -50,3 +50,11 @@ Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test.
 So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschalten werden.
 
 (Musterlösung siehe Branch `feature/test-data-driven` - basiert auf Branch `feature/test-simple-assertj`)
+
+### 6. JUnit 5 Extension
+
+Implementiere eine JUnit 5 Extension, die vor und nach der Ausführung eines Tests einen
+Zeitstempel nimmt, und nach dem Test die Differenz auf die Konsole loggt.
+
+(Musterlösung siehe Branch `feature/extension` - basiert auf Branch `feature/test-simple`)
+
