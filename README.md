@@ -79,3 +79,10 @@ mvn clean test -Ponly-perf-m
 ```
 
 (Musterlösung siehe Branch `feature/tags` - basiert auf Branch `feature/extension`)
+
+### 8. Mockito ArgumentCaptor
+
+Schreibe einen Test für `GasStationAttendant`, bei dem sichergestellt wird, dass bei schrittweisem Auffülen des `Car` in Summe
+die gewünschte Füllmenge erreicht wird.
+
+(Musterlösung siehe Branch `feature/argument-captor` - basiert auf Branch `main`)
