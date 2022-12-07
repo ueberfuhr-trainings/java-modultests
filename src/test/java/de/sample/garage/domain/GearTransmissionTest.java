@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@PerformanceMeasuringTest
 class GearTransmissionTest {
 
     private static final int MAXGEAR = 6;
@@ -18,6 +17,7 @@ class GearTransmissionTest {
 
     @Test
     @DisplayName("constructor should throw IllegalArgumentException")
+    @PerformanceMeasuringTest
     void shouldConstructorThrowException() {
         assertAll(
           () -> assertThrows(IllegalArgumentException.class, () -> new GearTransmission(-5)),
@@ -45,6 +45,7 @@ class GearTransmissionTest {
 
     @Test
     @DisplayName("should throw exception when shifting up too much")
+    @PerformanceMeasuringTest
     void shouldThrowShiftNotPossibleException() throws ShiftNotPossibleException {
         for (int i = 1; i <= GearTransmissionTest.MAXGEAR; i++) {
             transmission.shiftUp();
