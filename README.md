@@ -96,7 +96,7 @@ Merge für die Erweiterung des Projektes den Branch `feature/spring-boot-2` (Jav
 
 Implementiere einen SpringBoot Test, der prüft, ob die REST API korrekt funktioniert. Mocke dabei den Service.
 
-(Musterlösung siehe Branch `feature/spring-boot-2-mockmvc` - basiert auf Branch `feature/spring-boot-2`)
+(Musterlösung siehe Branch `feature/spring-boot-2-mockmvc` - basiert auf Branch `feature/spring-boot-2`)\
 (Musterlösung siehe Branch `feature/spring-boot-3-mockmvc` - basiert auf Branch `feature/spring-boot-3`)
 
 ### 2. Optimierung: Slices, Test Configurations und Meta Annotations
@@ -104,5 +104,5 @@ Implementiere einen SpringBoot Test, der prüft, ob die REST API korrekt funktio
 Optimiere die Test-Performance durch Verwendung von `@WebMvcTest`. Erstelle außerdem eine Meta Annotation,
 die diese Slice und weitere sinnvolle Konfigurationen bündelt.
 
-(Musterlösung siehe Branch `feature/spring-boot-2-optimization` - basiert auf Branch `feature/spring-boot-2-mockmvc`)
+(Musterlösung siehe Branch `feature/spring-boot-2-optimization` - basiert auf Branch `feature/spring-boot-2-mockmvc`)\
 (Musterlösung siehe Branch `feature/spring-boot-3-optimization` - basiert auf Branch `feature/spring-boot-3-mockmvc`)
