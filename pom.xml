@@ -20,7 +20,6 @@
         <assertj.version>3.22.0</assertj.version>
         <!-- executes JUnit 5 tests -->
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
-        <cucumber.version>7.1.0</cucumber.version>
     </properties>
 
     <dependencyManagement>
