@@ -11,8 +11,8 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @Suite
 @IncludeEngines("cucumber")
 @SuiteDisplayName("Cucumber Tests")
-@SelectPackages({"de.sample.garage.domain", "features"})
+@SelectPackages({"de.sample.garage.domain", "features.domain"})
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "de.sample.garage.domain")
-public class RunCucumberTests {
+public class CucumberDomainTests {
 }
