@@ -25,9 +25,20 @@
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
         <cucumber.version>7.1.0</cucumber.version>
         <spock.version>2.0-groovy-3.0</spock.version>
-        <groovy.version>3.0.10</groovy.version>
         <gmavenplus-plugin.version>1.13.0</gmavenplus-plugin.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.spockframework</groupId>
+                <artifactId>spock-bom</artifactId>
+                <version>${spock.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -62,7 +73,6 @@
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy</artifactId>
-            <version>${groovy.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
