@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.withSettings;
 
 @TestConfiguration
 @Profile("api-test")
@@ -14,7 +13,8 @@ public class MockDomainConfiguration {
 
     @Bean
     VendorService vendorServiceMock() {
-        return mock(VendorService.class, withSettings().lenient());
+        // be aware that this mock is strict, while @MockBean created mocks are lenient
+        return mock(VendorService.class);
     }
 
 }
