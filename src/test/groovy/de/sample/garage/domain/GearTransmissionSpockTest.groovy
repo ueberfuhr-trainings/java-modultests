@@ -3,8 +3,6 @@ package de.sample.garage.domain
 import de.sample.garage.domain.exception.ShiftNotPossibleException
 import spock.lang.Specification
 
-import static org.assertj.core.api.Assertions.assertThat
-
 class GearTransmissionSpockTest extends Specification {
 
   static final def MAXGEAR = 6
