@@ -27,7 +27,14 @@ Ersetze die bestehenden JUnit Assertions durch AssertJ Assertions. Worin besteht
 
 (Musterlösung siehe Branch `feature/test-simple-assertj` - basiert auf Branch `feature/test-simple`)
 
-### 3. Mocking
+### 3. Data Driven Test
+
+Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test.
+So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschalten werden.
+
+(Musterlösung siehe Branch `feature/test-data-driven` - basiert auf Branch `feature/test-simple-assertj`)
+
+### 4. Mocking
 
 1. Öffne die Klasse `Car`. Diese hat Abhängigkeiten zu `GearTransmission`, `Engine`, 
    `Clutch` und `GasTank`. Beachte den Konstruktor, mit dem diese Abhängigkeiten von 
@@ -37,21 +44,7 @@ Ersetze die bestehenden JUnit Assertions durch AssertJ Assertions. Worin besteht
 
 (Musterlösung siehe Branch `feature/test-mockito` - basiert auf Branch `feature/test-simple-assertj`)
 
-### 4. Code Coverage
-
-1. Prüfe, ob Deine Entwicklungsumgebung Tests mit Messung der Code Coverage ausführen kann.
-2. Erweitere den Maven-Build um Messung der Code Coverage während des automatisierten Builds.
-
-(Musterlösung siehe Branch `feature/code-coverage` - basiert auf Branch `main`)
-
-### 5. Data Driven Test
-
-Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test.
-So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschalten werden.
-
-(Musterlösung siehe Branch `feature/test-data-driven` - basiert auf Branch `feature/test-simple-assertj`)
-
-### 6. JUnit 5 Extension
+### 5. JUnit 5 Extension
 
 Implementiere eine JUnit 5 Extension, die vor und nach der Ausführung eines Tests einen
 Zeitstempel nimmt, und nach dem Test die Differenz auf die Konsole loggt. Stelle für das leichtere 
@@ -60,7 +53,7 @@ aber auch auf Klassenebene für alle Testmethoden verwendet werden.
 
 (Musterlösung siehe Branch `feature/extension` - basiert auf Branch `feature/test-simple`)
 
-### 7. JUnit 5 Tags
+### 6. JUnit 5 Tags
 
 Nutze einen Tag (`perf-m` o. ä.), um alle Tests, die mit eben erstellter Extension ausgeführt werden, ein- bzw. auszuschließen.
 Beim Aufruf von Maven sollten diese Tags dann wie folgt ein- bzw. ausgeschlossen werden können:
@@ -80,21 +73,21 @@ mvn clean test -Ponly-perf-m
 
 (Musterlösung siehe Branch `feature/tags` - basiert auf Branch `feature/extension`)
 
-### 8. Mockito ArgumentCaptor
+### 7. Mockito ArgumentCaptor
 
 Schreibe einen Test für `GasStationAttendant`, bei dem sichergestellt wird, dass bei schrittweisem Auffülen des `Car` in Summe
 die gewünschte Füllmenge erreicht wird.
 
 (Musterlösung siehe Branch `feature/argument-captor` - basiert auf Branch `main`)
 
-### 9. Cucumber
+### 8. Cucumber
 
 Beschreibe das Shift-Verhalten der `GearTransmission` mit der Gherkin-Syntax und implementiere einen entsprechenden Test
 mithilfe von Cucumber.
 
 (Musterlösung siehe Branch `feature/cucumber` - basiert auf Branch `feature/test-simple`)
 
-### 10. Spock
+### 9. Spock
 
 Implementiere die Tests für die `GearTransmission` und `Car` mithilfe von Spock (Groovy).
 
@@ -127,7 +120,7 @@ Formuliere den REST API Test mithilfe der Gherkin-Syntax und implementiere einen
 (Musterlösung siehe Branch `feature/spring-boot-2-cucumber` - basiert auf Branches `feature/spring-boot-2-optimization` und `feature/cucumber`)\
 (Musterlösung siehe Branch `feature/spring-boot-3-cucumber` - basiert auf Branches `feature/spring-boot-3-optimization` und `feature/cucumber`)
 
-### 3. Spock
+### 4. Spock
 
 Implementiere den REST API Test mithilfe von Spock.
 
