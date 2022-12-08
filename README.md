@@ -87,6 +87,19 @@ die gewünschte Füllmenge erreicht wird.
 
 (Musterlösung siehe Branch `feature/argument-captor` - basiert auf Branch `main`)
 
+### 9. Cucumber
+
+Beschreibe das Shift-Verhalten der `GearTransmission` mit der Gherkin-Syntax und implementiere einen entsprechenden Test
+mithilfe von Cucumber.
+
+(Musterlösung siehe Branch `feature/cucumber` - basiert auf Branch `feature/test-simple`)
+
+### 10. Spock
+
+Implementiere die Tests für die `GearTransmission` mithilfe von Spock (Groovy).
+
+(Musterlösung siehe Branch `feature/spock` - basiert auf Branch `feature/test-simple`)
+
 ## Aufgabenstellungen (Spring Boot)
 
 Merge für die Erweiterung des Projektes den Branch `feature/spring-boot-2` (Java 11) oder `feature/spring-boot-3` (Java 17) in den
