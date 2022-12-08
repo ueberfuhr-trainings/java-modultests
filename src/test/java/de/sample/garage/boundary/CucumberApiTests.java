@@ -12,8 +12,8 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @Suite
 @IncludeEngines("cucumber")
 @SuiteDisplayName("Cucumber API Tests")
-@SelectPackages({"de.sample.garage.boundary", "features"})
+@SelectPackages({"de.sample.garage.boundary", "features.api"})
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "de.sample.garage.boundary")
-public class RunCucumberApiTests {
+public class CucumberApiTests {
 }
