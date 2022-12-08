@@ -11,7 +11,7 @@ Feature-Branches (`feature/*`) bereitgestellt. Es ist möglich, per `git checkou
 zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlösung direkt in den
 `main`-Branch zu kopieren.
 
-## Aufgabenstellungen
+## Aufgabenstellungen (Plain Java)
 
 ### 1. Einfache Modultests
 
@@ -79,3 +79,59 @@ mvn clean test -Ponly-perf-m
 ```
 
 (Musterlösung siehe Branch `feature/tags` - basiert auf Branch `feature/extension`)
+
+### 8. Mockito ArgumentCaptor
+
+Schreibe einen Test für `GasStationAttendant`, bei dem sichergestellt wird, dass bei schrittweisem Auffülen des `Car` in Summe
+die gewünschte Füllmenge erreicht wird.
+
+(Musterlösung siehe Branch `feature/argument-captor` - basiert auf Branch `main`)
+
+### 9. Cucumber
+
+Beschreibe das Shift-Verhalten der `GearTransmission` mit der Gherkin-Syntax und implementiere einen entsprechenden Test
+mithilfe von Cucumber.
+
+(Musterlösung siehe Branch `feature/cucumber` - basiert auf Branch `feature/test-simple`)
+
+### 10. Spock
+
+Implementiere die Tests für die `GearTransmission` und `Car` mithilfe von Spock (Groovy).
+
+(Musterlösung siehe Branch `feature/spock` - basiert auf Branch `feature/test-mockito`)
+
+## Aufgabenstellungen (Spring Boot)
+
+Merge für die Erweiterung des Projektes den Branch `feature/spring-boot-2` (Java 11) oder `feature/spring-boot-3` (Java 17) in den
+`main`-Branch.
+
+### 1. Erster Spring Boot Test
+
+Implementiere einen SpringBoot Test, der prüft, ob die REST API korrekt funktioniert. Mocke dabei den Service.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-mockmvc` - basiert auf Branch `feature/spring-boot-2`)\
+(Musterlösung siehe Branch `feature/spring-boot-3-mockmvc` - basiert auf Branch `feature/spring-boot-3`)
+
+### 2. Optimierung: Slices, Test Configurations und Meta Annotations
+
+Optimiere die Test-Performance durch Verwendung von `@WebMvcTest`. Erstelle außerdem eine Meta Annotation,
+die diese Slice und weitere sinnvolle Konfigurationen bündelt.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-optimization` - basiert auf Branch `feature/spring-boot-2-mockmvc`)\
+(Musterlösung siehe Branch `feature/spring-boot-3-optimization` - basiert auf Branch `feature/spring-boot-3-mockmvc`)
+
+### 3. Cucumber
+
+Formuliere den REST API Test mithilfe der Gherkin-Syntax und implementiere einen entsprechenden Test.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-cucumber` - basiert auf Branches `feature/spring-boot-2-optimization` und `feature/cucumber`)\
+(Musterlösung siehe Branch `feature/spring-boot-3-cucumber` - basiert auf Branches `feature/spring-boot-3-optimization` und `feature/cucumber`)
+
+### 3. Spock
+
+Implementiere den REST API Test mithilfe von Spock.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-spock` - basiert auf Branch `feature/spring-boot-2-optimization` und `feature/spock`)\
+(Musterlösung siehe Branch `feature/spring-boot-3-spock` - basiert auf Branch `feature/spring-boot-3-optimization` und `feature/spock`)
+
+
