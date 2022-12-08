@@ -98,7 +98,7 @@ mithilfe von Cucumber.
 
 Implementiere die Tests für die `GearTransmission` und `Car` mithilfe von Spock (Groovy).
 
-(Musterlösung siehe Branch `feature/spock` - basiert auf Branch `feature/test-mockito`)
+(Musterlösung siehe Branch `feature/spock` - basiert auf Branch `feature/test-mockito` und `feature/test-data-driven`)
 
 ## Aufgabenstellungen (Spring Boot)
 
