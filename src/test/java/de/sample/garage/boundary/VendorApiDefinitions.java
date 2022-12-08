@@ -19,14 +19,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.lenient;
-import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@CucumberContextConfiguration
 @GarageApiTest
+@CucumberContextConfiguration
 public class VendorApiDefinitions {
 
     @Autowired
@@ -106,7 +108,7 @@ public class VendorApiDefinitions {
     @Then("we get a validation error")
     public void assertValidationError() throws Exception {
         response.andExpect(status().is4xxClientError());
-        verifyNoInteractions(service);
+        verify(service, never()).save(any());
     }
 
 }
