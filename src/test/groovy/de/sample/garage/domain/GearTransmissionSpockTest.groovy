@@ -1,19 +1,49 @@
 package de.sample.garage.domain
 
+import de.sample.garage.domain.exception.ShiftNotPossibleException
 import spock.lang.Specification
+
+import static org.assertj.core.api.Assertions.assertThat
 
 class GearTransmissionSpockTest extends Specification {
 
-  private static final int MAXGEAR = 6
+  static final def MAXGEAR = 6
 
-  private final GearTransmission transmission = new GearTransmission(MAXGEAR)
+  final def transmission = [MAXGEAR] as GearTransmission
 
-  def "constructor should throw IllegalArgumentException"() {
-    verifyAll {
-
-    }
+  def "constructor should throw IllegalArgumentException when max gear is #maxGear"() {
+    when:
+    new GearTransmission(maxGear)
+    then:
+    thrown IllegalArgumentException
+    where:
+    maxGear << [-5, 0]
   }
 
+  def "should shift up successfully"() {
+    when:
+    def results = (1 .. transmission.maxGear).collect {
+      transmission.shiftUp()
+      transmission.currentGear
+    }
+    then:
+    results == (1 .. transmission.maxGear)
+  }
 
+  def "should throw exception when shifting up too much"() {
+    given:
+    (1 .. transmission.maxGear).each{
+      transmission.shiftUp()
+    }
+    when:
+    transmission.shiftUp()
+    then:
+    thrown ShiftNotPossibleException
+    and:
+    when:
+    transmission.shiftUp()
+    then:
+    thrown ShiftNotPossibleException
+  }
 
 }
