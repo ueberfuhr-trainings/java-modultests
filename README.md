@@ -96,9 +96,9 @@ mithilfe von Cucumber.
 
 ### 10. Spock
 
-Implementiere die Tests für die `GearTransmission` mithilfe von Spock (Groovy).
+Implementiere die Tests für die `GearTransmission` und `Car` mithilfe von Spock (Groovy).
 
-(Musterlösung siehe Branch `feature/spock` - basiert auf Branch `feature/test-simple`)
+(Musterlösung siehe Branch `feature/spock` - basiert auf Branch `feature/test-mockito`)
 
 ## Aufgabenstellungen (Spring Boot)
 
@@ -119,3 +119,19 @@ die diese Slice und weitere sinnvolle Konfigurationen bündelt.
 
 (Musterlösung siehe Branch `feature/spring-boot-2-optimization` - basiert auf Branch `feature/spring-boot-2-mockmvc`)\
 (Musterlösung siehe Branch `feature/spring-boot-3-optimization` - basiert auf Branch `feature/spring-boot-3-mockmvc`)
+
+### 3. Cucumber
+
+Formuliere den REST API Test mithilfe der Gherkin-Syntax und implementiere einen entsprechenden Test.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-cucumber` - basiert auf Branches `feature/spring-boot-2-optimization` und `feature/cucumber`)\
+(Musterlösung siehe Branch `feature/spring-boot-3-cucumber` - basiert auf Branches `feature/spring-boot-3-optimization` und `feature/cucumber`)
+
+### 3. Spock
+
+Implementiere den REST API Test mithilfe von Spock.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-spock` - basiert auf Branch `feature/spring-boot-2-optimization` und `feature/spock`)\
+(Musterlösung siehe Branch `feature/spring-boot-3-spock` - basiert auf Branch `feature/spring-boot-3-optimization` und `feature/spock`)
+
+
