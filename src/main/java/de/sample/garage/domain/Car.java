@@ -1,6 +1,5 @@
 package de.sample.garage.domain;
 
-import de.sample.garage.domain.errorhandling.ErrorHandler;
 import de.sample.garage.domain.exception.ShiftNotPossibleException;
 
 /**
@@ -94,18 +93,19 @@ public class Car {
             throw new IllegalStateException("Die Kupplung ist nich gedr�ckt!");
         }
 
-        try {
-            geartransmission.shiftUp();
-        } catch (ShiftNotPossibleException e) {
-            ErrorHandler.handleError(e);
-        }
+        // Don't do that:
+        // try {
+        geartransmission.shiftUp();
+        // } catch (ShiftNotPossibleException e) {
+        //     ErrorHandler.handleError(e);
+        // }
     }
 
     /**
      * Drives the car.
      */
     public void drive() {
-        if (gastank.isEmpty() && !engine.isEngineStarted()) {
+        if (!gastank.isEmpty() && !engine.isEngineStarted()) {
             engine.start();
         }
     }
