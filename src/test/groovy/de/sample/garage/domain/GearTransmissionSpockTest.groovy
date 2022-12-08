@@ -20,17 +20,17 @@ class GearTransmissionSpockTest extends Specification {
 
   def "should shift up successfully"() {
     when:
-    def results = (1 .. transmission.maxGear).collect {
+    def results = (1..transmission.maxGear).collect {
       transmission.shiftUp()
       transmission.currentGear
     }
     then:
-    results == (1 .. transmission.maxGear)
+    results == (1..transmission.maxGear)
   }
 
   def "should throw exception when shifting up too much"() {
     given:
-    (1 .. transmission.maxGear).each{
+    (1..transmission.maxGear).each {
       transmission.shiftUp()
     }
     when:
@@ -42,6 +42,19 @@ class GearTransmissionSpockTest extends Specification {
     transmission.shiftUp()
     then:
     thrown ShiftNotPossibleException
+  }
+
+  def "Shifting up with maximum gears of #maxGear"() {
+    given:
+    def gt = new GearTransmission(maxGear)
+    when:
+    (1..maxGear).each {
+      gt.shiftUp()
+    }
+    then:
+    gt.currentGear == maxGear
+    where:
+    maxGear << [1, 3, 4, 5, 6, 7, 100]
   }
 
 }
