@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.doThrow;
@@ -37,19 +38,22 @@ public class CarTest {
     class FillUpTests {
 
         @Test
-        void shouldNotFillUpWithStartedEngine() {
-            // arrange
+        void shouldNotFillUpWhenEngineIsStarted() {
+            // Arrange / Given
             when(engine.isEngineStarted()).thenReturn(true);
-            // act+assert
-            assertThrows(IllegalStateException.class, () -> car.fillUp(5d));
-            // assert
+            lenient().when(tank.isAmountPossible(5.0)).thenReturn(true);
+            // Act+Assert
+            assertThatThrownBy(() -> car.fillUp(5.0))
+              .isInstanceOf(IllegalStateException.class)
+              .hasMessage("The engine is running!");
+            // Assert
             verify(tank, never()).fillUp(anyDouble());
         }
 
         @Test
         void shouldNotFillUpWithAmountNotPossible() {
             // arrange
-            when(engine.isEngineStarted()).thenReturn(false);
+            lenient().when(engine.isEngineStarted()).thenReturn(false);
             when(tank.isAmountPossible(anyDouble())).thenReturn(false);
             // act
             car.fillUp(5d);
@@ -125,17 +129,6 @@ public class CarTest {
             // arrange
             when(tank.isEmpty()).thenReturn(true);
             lenient().when(engine.isEngineStarted()).thenReturn(false);
-            // act
-            car.drive();
-            // assert
-            verify(engine, never()).start();
-        }
-
-        @Test
-        void shouldNotStartEngineWithEmptyGasTankAndStartedEngine() {
-            // arrange
-            lenient().when(tank.isEmpty()).thenReturn(true);
-            lenient().when(engine.isEngineStarted()).thenReturn(true);
             // act
             car.drive();
             // assert

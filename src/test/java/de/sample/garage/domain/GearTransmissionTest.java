@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class GearTransmissionTest {
@@ -17,19 +16,15 @@ class GearTransmissionTest {
 
     private final GearTransmission transmission = new GearTransmission(GearTransmissionTest.MAXGEAR);
 
-    @Test
-    @DisplayName("constructor should throw IllegalArgumentException")
-    void shouldConstructorThrowException() {
-        assertAll(
-          () -> assertThatThrownBy(() -> new GearTransmission(-5))
-            .isInstanceOf(IllegalArgumentException.class),
-          () -> assertThatThrownBy(() -> new GearTransmission(0))
-            .isInstanceOf(IllegalArgumentException.class)
-        );
+    @ParameterizedTest(name = "maximum gear must be greater than zero (here: {0})")
+    @ValueSource(ints = { -5, 0 })
+    void shouldConstructorThrowIllegalArgumentException(int maxGear) {
+        assertThatThrownBy(() -> new GearTransmission(maxGear))
+          .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    @DisplayName("should have correct initial state")
+    @DisplayName("correct initial state")
     void shouldHaveCorrectInitialState() {
         assertThat(transmission)
           .extracting(GearTransmission::getCurrentGear, GearTransmission::getMaxGear)
@@ -37,7 +32,7 @@ class GearTransmissionTest {
     }
 
     @Test
-    @DisplayName("should shift up successfully")
+    @DisplayName("shift up successfully")
     void shouldShiftUpSuccessfully() throws ShiftNotPossibleException {
         for (int i = 1; i <= transmission.getMaxGear(); i++) {
             transmission.shiftUp();
@@ -48,7 +43,7 @@ class GearTransmissionTest {
     }
 
     @Test
-    @DisplayName("should throw exception when shifting up too much")
+    @DisplayName("shifting up too much is not possible")
     void shouldThrowShiftNotPossibleException() throws ShiftNotPossibleException {
         for (int i = 1; i <= GearTransmissionTest.MAXGEAR; i++) {
             transmission.shiftUp();
@@ -61,7 +56,7 @@ class GearTransmissionTest {
     }
 
     @ParameterizedTest(name = "Shifting up with maximum gears of {0}")
-    @ValueSource(ints = {1,3,4,5,6,7,100})
+    @ValueSource(ints = { 1, 3, 4, 5, 6, 7, 100 })
     void testShiftingParameterized(int maxGears) throws ShiftNotPossibleException {
         GearTransmission gt = new GearTransmission(maxGears);
         for (int i = 1; i <= maxGears; i++) {
