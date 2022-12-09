@@ -16,9 +16,9 @@ class GearTransmissionTest {
     private final GearTransmission transmission = new GearTransmission(GearTransmissionTest.MAXGEAR);
 
     @Test
-    @DisplayName("constructor should throw IllegalArgumentException")
+    @DisplayName("maximum gear must be greater than zero")
     @PerformanceMeasuringTest
-    void shouldConstructorThrowException() {
+    void shouldConstructorThrowIllegalArgumentException() {
         assertAll(
           () -> assertThrows(IllegalArgumentException.class, () -> new GearTransmission(-5)),
           () -> assertThrows(IllegalArgumentException.class, () -> new GearTransmission(0))
@@ -26,7 +26,7 @@ class GearTransmissionTest {
     }
 
     @Test
-    @DisplayName("should have correct initial state")
+    @DisplayName("correct initial state")
     void shouldHaveCorrectInitialState() {
         assertAll(
           () -> assertNull(transmission.getCurrentGear()),
@@ -35,7 +35,7 @@ class GearTransmissionTest {
     }
 
     @Test
-    @DisplayName("should shift up successfully")
+    @DisplayName("shift up successfully")
     void shouldShiftUpSuccessfully() throws ShiftNotPossibleException {
         for (int i = 1; i <= transmission.getMaxGear(); i++) {
             transmission.shiftUp();
@@ -44,7 +44,7 @@ class GearTransmissionTest {
     }
 
     @Test
-    @DisplayName("should throw exception when shifting up too much")
+    @DisplayName("shifting up too much is not possible")
     @PerformanceMeasuringTest
     void shouldThrowShiftNotPossibleException() throws ShiftNotPossibleException {
         for (int i = 1; i <= GearTransmissionTest.MAXGEAR; i++) {
