@@ -18,11 +18,11 @@
         <mockito.version>4.5.1</mockito.version>
         <junit.version>5.8.2</junit.version>
         <assertj.version>3.22.0</assertj.version>
-        <!-- executes JUnit 5 tests -->
-        <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
-        <cucumber.version>7.1.0</cucumber.version>
         <spock.version>2.0-groovy-3.0</spock.version>
         <groovy.version>3.0.10</groovy.version>
+        <!-- executes JUnit 5 tests -->
+        <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+		<jacoco-plugin.version>0.8.8</jacoco-plugin.version>
         <gmavenplus-plugin.version>1.13.0</gmavenplus-plugin.version>
     </properties>
 
@@ -104,19 +104,29 @@
     </dependencies>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${surefire-plugin.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>coverage-initialize</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>coverage-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
-                <version>${gmavenplus-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -125,7 +135,71 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+		</plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire-plugin.version}</version>
+                </plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${jacoco-plugin.version}</version>
+				</plugin>
+                <plugin>
+                    <groupId>org.codehaus.gmavenplus</groupId>
+                    <artifactId>gmavenplus-plugin</artifactId>
+                    <version>${gmavenplus-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
+
+	<profiles>
+		<!-- use mvn verify -Pcheck-line-coverage -->
+		<profile>
+			<id>check-line-coverage</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<executions>
+							<!-- Threshold -->
+							<execution>
+								<id>coverage-check</id>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.jacoco</groupId>
+							<artifactId>jacoco-maven-plugin</artifactId>
+							<configuration>
+								<rules>
+									<rule>
+										<element>CLASS</element>
+										<limits>
+											<limit>
+												<counter>LINE</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>80%</minimum>
+											</limit>
+										</limits>
+									</rule>
+								</rules>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
