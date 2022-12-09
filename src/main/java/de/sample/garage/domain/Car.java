@@ -90,7 +90,7 @@ public class Car {
      */
     public void shiftUp() throws IllegalStateException, ShiftNotPossibleException {
         if (!clutch.isPressed()) {
-            throw new IllegalStateException("Die Kupplung ist nich gedr�ckt!");
+            throw new IllegalStateException("Clutch is not pressed. Press the clutch to shift.");
         }
 
         // Don't do that:
