@@ -22,8 +22,8 @@
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <cucumber.version>7.1.0</cucumber.version>
         <!-- executes JUnit 5 tests -->
-        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
-        <jacoco-plugin.version>0.8.8</jacoco-plugin.version>
+        <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+		<jacoco-plugin.version>0.8.8</jacoco-plugin.version>
     </properties>
 
     <dependencyManagement>
