@@ -1,5 +1,6 @@
 package de.sample.garage.boundary;
 
+import de.sample.garage.test.config.MockProvider;
 import org.junit.jupiter.api.Tag;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,7 +20,7 @@ import java.lang.annotation.Target;
  *     <li>Spring MVC components (controllers, controller advices...)</li>
  *     <li>MVC Mock</li>
  *     <li>components in the <tt>boundary</tt> package</li>
- *     <li>service mocks (we can get them using @{@link org.springframework.beans.factory.annotation.Autowired})</li>
+ *     <li>service mocks using Mockito (we can get them using @{@link org.springframework.beans.factory.annotation.Autowired})</li>
  *     <li><tt>test</tt> and <tt>api-test</tt> profiles</li>
  *     <li><tt>integration-test</tt> and <tt>api-test</tt> tags</li>
  * </ul>
@@ -29,7 +30,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @WebMvcTest
-@ComponentScan(basePackageClasses = GarageApiTest.class)
+@ComponentScan(basePackageClasses = {GarageApiTest.class, MockProvider.class})
 @ActiveProfiles({"test", "api-test"})
 @Tag("integration-test")
 @Tag("api-test")
