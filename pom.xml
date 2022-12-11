@@ -19,7 +19,8 @@
 
     <properties>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
-        <spock.version>2.3-groovy-4.0</spock.version>
+        <!-- we need this version, because of https://github.com/spockframework/spock/issues/1539 -->
+        <spock.version>2.4-M1-groovy-4.0</spock.version>
         <!-- executes JUnit 5 tests -->
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
         <jacoco-plugin.version>0.8.8</jacoco-plugin.version>
