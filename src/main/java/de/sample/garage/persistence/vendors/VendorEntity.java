@@ -1,6 +1,5 @@
 package de.sample.garage.persistence.vendors;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
