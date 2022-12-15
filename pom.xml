@@ -49,6 +49,17 @@
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
         </dependency>
+        <!-- Datenbank -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <!-- Treiber: nicht gegen diese API programmieren, erst zur Laufzeit benötigt -->
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>
