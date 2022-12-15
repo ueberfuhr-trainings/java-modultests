@@ -1,15 +1,17 @@
-package de.sample.garage.boundary;
+package de.sample.garage.boundary.vendors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.sample.garage.domain.Vendor;
-import de.sample.garage.domain.VendorService;
+import de.sample.garage.boundary.GarageApiTest;
+import de.sample.garage.domain.vendors.Vendor;
+import de.sample.garage.domain.vendors.VendorService;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -32,9 +34,20 @@ class VendorApiTest {
     ObjectMapper objectMapper;
 
     @Test
+    void shouldReturn404IfNoVendorFound() throws Exception {
+        String shortName = "test";
+        when(service.findByShortName(shortName)).thenReturn(Optional.empty());
+        mvc.perform(
+            get("/api/v1/vendors" + shortName)
+              .accept(MediaType.APPLICATION_JSON)
+          )
+          .andExpect(status().isNotFound());
+    }
+
+    @Test
     void shouldReturnVendorsInSnakeCase() throws Exception {
         when(service.findAll()).thenReturn(
-          List.of(
+          Stream.of(
             Vendor.builder()
               .shortName("TEST")
               .name("name")
