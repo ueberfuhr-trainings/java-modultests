@@ -40,11 +40,11 @@ import java.lang.annotation.Target;
 @Import(GarageApiTest.MockDomainConfiguration.class)
 public @interface GarageApiTest {
 
-    @TestConfiguration // if not set, the mock is not registered at the context
+    @TestConfiguration
     class MockDomainConfiguration {
 
         // do not use mock() here directly, because @MockBean will register the mock for automatic reset
-        @MockBean // Mock is injected but not registered in the context
+        @MockBean
         VendorService vendorService;
 
     }

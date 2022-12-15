@@ -43,8 +43,7 @@ public @interface GarageDomainTest {
     class MockDomainConfiguration {
 
         // do not use mock() here directly, because @MockBean will register the mock for automatic reset
-        @MockBean // Mock is injected but not registered in the context
-//        @Getter(onMethod_ = @Bean(name = "vendorSinkMock")) // register in the context
+        @MockBean
         VendorService.VendorSink vendorSink;
 
     }
