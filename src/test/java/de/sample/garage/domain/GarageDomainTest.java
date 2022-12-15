@@ -1,11 +1,10 @@
 package de.sample.garage.domain;
 
 import de.sample.garage.domain.vendors.VendorService;
-import lombok.Getter;
 import org.junit.jupiter.api.Tag;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.event.RecordApplicationEvents;
@@ -40,14 +39,12 @@ import java.lang.annotation.Target;
 @Import(GarageDomainTest.MockDomainConfiguration.class)
 public @interface GarageDomainTest {
 
-    // we don't need this because we use @Import
-    // @TestConfiguration
-    // @Profile("api-test")
+    @TestConfiguration // if not set, the mock is not registered at the context
     class MockDomainConfiguration {
 
         // do not use mock() here directly, because @MockBean will register the mock for automatic reset
         @MockBean // Mock is injected but not registered in the context
-        @Getter(onMethod_ = @Bean(name = "vendorSinkMock")) // register in the context
+//        @Getter(onMethod_ = @Bean(name = "vendorSinkMock")) // register in the context
         VendorService.VendorSink vendorSink;
 
     }
