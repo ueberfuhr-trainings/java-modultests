@@ -1,8 +1,10 @@
 package de.sample.garage.domain;
 
 import de.sample.garage.domain.vendors.VendorService;
+import lombok.Getter;
 import org.junit.jupiter.api.Tag;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
@@ -14,8 +16,6 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import static org.mockito.Mockito.mock;
 
 /**
  * A test slice for domain tests. Those tests share the same bean context,
@@ -34,23 +34,21 @@ import static org.mockito.Mockito.mock;
 @Target(ElementType.TYPE)
 @SpringBootTest(classes = VendorService.class)
 @RecordApplicationEvents
-@ActiveProfiles({"test", "domain-test"})
+@ActiveProfiles({ "test", "domain-test" })
 @Tag("integration-test")
 @Tag("domain-test")
 @Import(GarageDomainTest.MockDomainConfiguration.class)
 public @interface GarageDomainTest {
-
 
     // we don't need this because we use @Import
     // @TestConfiguration
     // @Profile("api-test")
     class MockDomainConfiguration {
 
-        @Bean
-        VendorService.VendorSink vendorSinkMock() {
-            // be aware that this mock is strict, while @MockBean created mocks are lenient
-            return mock(VendorService.VendorSink.class);
-        }
+        // do not use mock() here directly, because @MockBean will register the mock for automatic reset
+        @MockBean // Mock is injected but not registered in the context
+        @Getter(onMethod_ = @Bean(name = "vendorSinkMock")) // register in the context
+        VendorService.VendorSink vendorSink;
 
     }
 
