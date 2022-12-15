@@ -1,6 +1,6 @@
-package de.sample.garage.boundary;
+package de.sample.garage.boundary.vendors;
 
-import de.sample.garage.domain.VendorService;
+import de.sample.garage.domain.vendors.VendorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,9 +26,15 @@ public class VendorController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<VendorDto> findAll() {
         return service.findAll()
-          .stream()
           .map(mapper::map)
           .collect(Collectors.toList());
+    }
+
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public VendorDto findByShortName(@PathVariable("id") String shortName) {
+        return service.findByShortName(shortName)
+          .map(mapper::map)
+          .orElseThrow(NotFoundException::new);
     }
 
     @PutMapping("/{shortName}")

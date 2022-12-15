@@ -1,4 +1,4 @@
-package de.sample.garage.boundary;
+package de.sample.garage.boundary.vendors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
