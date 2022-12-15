@@ -95,8 +95,34 @@ Implementiere die Tests für die `GearTransmission` und `Car` mithilfe von Spock
 
 ## Aufgabenstellungen (Spring Boot)
 
-Wechsle für die Erweiterung des Projektes und dieser Aufgabenstellung in einen der beiden Branches:
- - `feature/spring-boot-2` (Spring Boot 2, Java 11)
- - `feature/spring-boot-3` (Spring Boot 3, Java 17) 
+### 1. Integration und Isolation mit Spring Boot Tests
 
-Alternativ kannst Du den Branch auch in den `main`-Branch mergen.
+Implementiere Tests für folgende Anforderungen.
+Entscheide, was integriert, und was isoliert (gemockt) getestet werden soll.
+ - Nach dem Speichern eines `Vendor` (über REST API) besteht das Ergebnis der Abfrage aller Datensätze aus diesem einen.
+ - Wenn der Service keinen `Vendor` findet, gibt es einen 404er Status Code zurück.
+ - Der `shortName` des `Vendor` wird in snake_case (`short_name`) übertragen.
+ - Wenn der Service einen `Vendor` speichert, wird ein `VendorUpdatedEvent` für diesen Vendor publiziert.
+ - Wenn beim Persistenzieren des `Vendor` ein Fehler passiert, wird kein `VendorUpdatedEvent` publiziert.
+ - Nach dem Speichern eines `Vendor` kann dieser in der Datenbank anhand des `shortName` ermittelt werden.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-tests` - basiert auf Branch `feature/spring-boot-2`)\
+
+### 2. Optimierung: Slices, Test Configurations und Meta Annotations
+
+Optimiere die Test-Performance, indem Du unnötige Kontexte vermeidest.\
+**Tip:** Erstelle für die zentrale Definition der Kontexte und deren Konfigurationen JUnit Meta-Annotationen.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-optimization` - basiert auf Branch `feature/spring-boot-2-tests`)
+
+### 3. Cucumber
+
+Formuliere den REST API Test mithilfe der Gherkin-Syntax und implementiere einen entsprechenden Test.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-cucumber` - basiert auf Branches `feature/spring-boot-2-optimization` und `feature/cucumber`)
+
+### 4. Spock
+
+Implementiere den REST API Test mithilfe von Spock.
+
+(Musterlösung siehe Branch `feature/spring-boot-2-spock` - basiert auf Branch `feature/spring-boot-2-optimization` und `feature/spock`)

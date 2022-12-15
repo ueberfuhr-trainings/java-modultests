@@ -5,6 +5,7 @@ import lombok.experimental.Delegate;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
@@ -26,11 +27,14 @@ public class VendorService {
 
     }
 
+    @SuppressWarnings("unused")
     interface UnmodifiableVendorSink {
 
         long count();
 
         Stream<Vendor> findAll();
+
+        Optional<Vendor> findByShortName(String shortName);
 
     }
 

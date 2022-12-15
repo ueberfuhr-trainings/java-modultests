@@ -30,6 +30,13 @@ public class VendorController {
           .collect(Collectors.toList());
     }
 
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public VendorDto findByShortName(@PathVariable("id") String shortName) {
+        return service.findByShortName(shortName)
+          .map(mapper::map)
+          .orElseThrow(NotFoundException::new);
+    }
+
     @PutMapping("/{shortName}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void save(@RequestBody VendorDto vendor, @PathVariable("shortName") String shortName) {

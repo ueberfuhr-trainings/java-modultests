@@ -5,6 +5,7 @@ import de.sample.garage.domain.vendors.VendorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Component
@@ -23,6 +24,12 @@ public class JpaVendorSink implements VendorService.VendorSink {
     public Stream<Vendor> findAll() {
         return repo.findAll()
           .stream()
+          .map(mapper::map);
+    }
+
+    @Override
+    public Optional<Vendor> findByShortName(String shortName) {
+        return repo.findById(shortName)
           .map(mapper::map);
     }
 

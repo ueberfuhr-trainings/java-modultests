@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Configuration
@@ -34,6 +35,11 @@ public class VendorServiceConfiguration {
         @Override
         public Stream<Vendor> findAll() {
             return vendors.values().stream();
+        }
+
+        @Override
+        public Optional<Vendor> findByShortName(String shortName) {
+            return Optional.ofNullable(vendors.get(shortName));
         }
 
         @Override
