@@ -106,23 +106,23 @@ Entscheide, was integriert, und was isoliert (gemockt) getestet werden soll.
  - Wenn beim Persistenzieren des `Vendor` ein Fehler passiert, wird kein `VendorUpdatedEvent` publiziert.
  - Nach dem Speichern eines `Vendor` kann dieser in der Datenbank anhand des `shortName` ermittelt werden.
 
-(Musterlösung siehe Branch `feature/spring-boot-2-tests` - basiert auf Branch `feature/spring-boot-2`)\
+(Musterlösung siehe Branch `feature/spring-boot-3-tests` - basiert auf Branch `feature/spring-boot-3`)\
 
 ### 2. Optimierung: Slices, Test Configurations und Meta Annotations
 
 Optimiere die Test-Performance, indem Du unnötige Kontexte vermeidest.\
 **Tip:** Erstelle für die zentrale Definition der Kontexte und deren Konfigurationen JUnit Meta-Annotationen.
 
-(Musterlösung siehe Branch `feature/spring-boot-2-optimization` - basiert auf Branch `feature/spring-boot-2-tests`)
+(Musterlösung siehe Branch `feature/spring-boot-3-optimization` - basiert auf Branch `feature/spring-boot-3-tests`)
 
 ### 3. Cucumber
 
 Formuliere den REST API Test mithilfe der Gherkin-Syntax und implementiere einen entsprechenden Test.
 
-(Musterlösung siehe Branch `feature/spring-boot-2-cucumber` - basiert auf Branches `feature/spring-boot-2-optimization` und `feature/cucumber`)
+(Musterlösung siehe Branch `feature/spring-boot-3-cucumber` - basiert auf Branches `feature/spring-boot-3-optimization` und `feature/cucumber`)
 
 ### 4. Spock
 
 Implementiere den REST API Test mithilfe von Spock.
 
-(Musterlösung siehe Branch `feature/spring-boot-2-spock` - basiert auf Branch `feature/spring-boot-2-optimization` und `feature/spock`)
+(Musterlösung siehe Branch `feature/spring-boot-3-spock` - basiert auf Branch `feature/spring-boot-3-optimization` und `feature/spock`)
