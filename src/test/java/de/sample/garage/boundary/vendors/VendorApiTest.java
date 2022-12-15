@@ -13,6 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -39,6 +40,17 @@ class VendorApiTest {
     MockMvc mvc;
     @Autowired
     ObjectMapper objectMapper;
+
+    @Test
+    void shouldReturn404IfNoVendorFound() throws Exception {
+        String shortName = "test";
+        when(service.findByShortName(shortName)).thenReturn(Optional.empty());
+        mvc.perform(
+            get("/api/v1/vendors" + shortName)
+              .accept(MediaType.APPLICATION_JSON)
+          )
+          .andExpect(status().isNotFound());
+    }
 
     @Test
     void shouldReturnVendorsInSnakeCase() throws Exception {
