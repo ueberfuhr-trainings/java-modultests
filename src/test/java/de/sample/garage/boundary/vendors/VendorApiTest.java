@@ -1,18 +1,20 @@
-package de.sample.garage.boundary;
+package de.sample.garage.boundary.vendors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.sample.garage.domain.Vendor;
-import de.sample.garage.domain.VendorService;
+import de.sample.garage.domain.vendors.Vendor;
+import de.sample.garage.domain.vendors.VendorService;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -26,6 +28,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+// otherwise, it uses the file based
+// -> this would crash, when the app or another test is already running in parallel
+@AutoConfigureTestDatabase
 class VendorApiTest {
 
     @MockBean
@@ -37,9 +42,20 @@ class VendorApiTest {
     ObjectMapper objectMapper;
 
     @Test
+    void shouldReturn404IfNoVendorFound() throws Exception {
+        String shortName = "test";
+        when(service.findByShortName(shortName)).thenReturn(Optional.empty());
+        mvc.perform(
+            get("/api/v1/vendors" + shortName)
+              .accept(MediaType.APPLICATION_JSON)
+          )
+          .andExpect(status().isNotFound());
+    }
+
+    @Test
     void shouldReturnVendorsInSnakeCase() throws Exception {
         when(service.findAll()).thenReturn(
-          List.of(
+          Stream.of(
             Vendor.builder()
               .shortName("TEST")
               .name("name")
