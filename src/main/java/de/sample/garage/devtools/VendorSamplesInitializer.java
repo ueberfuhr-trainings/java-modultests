@@ -1,13 +1,15 @@
-package de.sample.garage.domain.vendors.config;
+package de.sample.garage.devtools;
 
 import de.sample.garage.domain.vendors.Vendor;
 import de.sample.garage.domain.vendors.VendorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("dev")
 @RequiredArgsConstructor
 public class VendorSamplesInitializer {
 

@@ -106,7 +106,7 @@ Entscheide, was integriert, und was isoliert (gemockt) getestet werden soll.
  - Wenn beim Persistenzieren des `Vendor` ein Fehler passiert, wird kein `VendorUpdatedEvent` publiziert.
  - Nach dem Speichern eines `Vendor` kann dieser in der Datenbank anhand des `shortName` ermittelt werden.
 
-(Musterlösung siehe Branch `feature/spring-boot-2-tests` - basiert auf Branch `feature/spring-boot-2`)\
+(Musterlösung siehe Branch `feature/spring-boot-2-tests` - basiert auf Branch `feature/spring-boot-2`)
 
 ### 2. Optimierung: Slices, Test Configurations und Meta Annotations
 
