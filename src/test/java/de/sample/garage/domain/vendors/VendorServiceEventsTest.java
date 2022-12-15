@@ -1,7 +1,9 @@
 package de.sample.garage.domain.vendors;
 
 import de.sample.garage.domain.GarageDomainTest;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.event.ApplicationEvents;
@@ -53,6 +55,11 @@ public class VendorServiceEventsTest {
           .isSameAs(ex);
         assertThat(events.stream(VendorUpdatedEvent.class))
           .isEmpty();
+    }
+
+    @AfterEach
+    void resetMocks() {
+        Mockito.reset(sink);
     }
 
 }
