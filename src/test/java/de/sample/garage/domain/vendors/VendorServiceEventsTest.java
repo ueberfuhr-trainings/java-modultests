@@ -1,26 +1,24 @@
 package de.sample.garage.domain.vendors;
 
+import de.sample.garage.domain.GarageDomainTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.event.ApplicationEvents;
-import org.springframework.test.context.event.RecordApplicationEvents;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.doThrow;
 
-@SpringBootTest
-@AutoConfigureTestDatabase
-@RecordApplicationEvents
+/*
+ * To re-use a context
+ */
+@GarageDomainTest
 public class VendorServiceEventsTest {
 
     @Autowired
     VendorService service;
-    @MockBean
+    @Autowired
     VendorService.VendorSink sink;
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
