@@ -1,12 +1,12 @@
-package de.sample.garage.boundary;
+package de.sample.garage.domain;
 
 import de.sample.garage.domain.vendors.VendorService;
 import org.junit.jupiter.api.Tag;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.event.RecordApplicationEvents;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -18,28 +18,27 @@ import java.lang.annotation.Target;
 import static org.mockito.Mockito.mock;
 
 /**
- * A test slice for API tests. Those tests share the same bean context,
+ * A test slice for domain tests. Those tests share the same bean context,
  * that is configured to include
  * <ul>
- *     <li>Spring MVC components (controllers, controller advices...)</li>
- *     <li>MVC Mock</li>
- *     <li>components in the <tt>boundary</tt> package</li>
- *     <li>service mocks (we can get them using @{@link org.springframework.beans.factory.annotation.Autowired})</li>
- *     <li><tt>test</tt> and <tt>api-test</tt> profiles</li>
- *     <li><tt>integration-test</tt> and <tt>api-test</tt> tags</li>
+ *     <li>components in the <tt>domain</tt> package</li>
+ *     <li>persistence mocks (we can get them using @{@link org.springframework.beans.factory.annotation.Autowired})</li>
+ *     <li>recorded application events</li>
+ *     <li><tt>test</tt> and <tt>domain-test</tt> profiles</li>
+ *     <li><tt>integration-test</tt> and <tt>domain-test</tt> tags</li>
  * </ul>
  */
 @Documented
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@WebMvcTest
-@ComponentScan(basePackageClasses = GarageApiTest.class)
-@ActiveProfiles({"test", "api-test"})
+@SpringBootTest(classes = VendorService.class)
+@RecordApplicationEvents
+@ActiveProfiles({"test", "domain-test"})
 @Tag("integration-test")
-@Tag("api-test")
-@Import(GarageApiTest.MockDomainConfiguration.class)
-public @interface GarageApiTest {
+@Tag("domain-test")
+@Import(GarageDomainTest.MockDomainConfiguration.class)
+public @interface GarageDomainTest {
 
 
     // we don't need this because we use @Import
@@ -48,9 +47,9 @@ public @interface GarageApiTest {
     class MockDomainConfiguration {
 
         @Bean
-        VendorService vendorServiceMock() {
+        VendorService.VendorSink vendorSinkMock() {
             // be aware that this mock is strict, while @MockBean created mocks are lenient
-            return mock(VendorService.class);
+            return mock(VendorService.VendorSink.class);
         }
 
     }
