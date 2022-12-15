@@ -95,36 +95,8 @@ Implementiere die Tests für die `GearTransmission` und `Car` mithilfe von Spock
 
 ## Aufgabenstellungen (Spring Boot)
 
-Merge für die Erweiterung des Projektes den Branch `feature/spring-boot-2` (Java 11) oder `feature/spring-boot-3` (Java 17) in den
-`main`-Branch.
+Wechsle für die Erweiterung des Projektes und dieser Aufgabenstellung in einen der beiden Branches:
+ - `feature/spring-boot-2` (Spring Boot 2, Java 11)
+ - `feature/spring-boot-3` (Spring Boot 3, Java 17) 
 
-### 1. Erster Spring Boot Test
-
-Implementiere einen SpringBoot Test, der prüft, ob die REST API korrekt funktioniert. Mocke dabei den Service.
-
-(Musterlösung siehe Branch `feature/spring-boot-2-mockmvc` - basiert auf Branch `feature/spring-boot-2`)\
-(Musterlösung siehe Branch `feature/spring-boot-3-mockmvc` - basiert auf Branch `feature/spring-boot-3`)
-
-### 2. Optimierung: Slices, Test Configurations und Meta Annotations
-
-Optimiere die Test-Performance durch Verwendung von `@WebMvcTest`. Erstelle außerdem eine Meta Annotation,
-die diese Slice und weitere sinnvolle Konfigurationen bündelt.
-
-(Musterlösung siehe Branch `feature/spring-boot-2-optimization` - basiert auf Branch `feature/spring-boot-2-mockmvc`)\
-(Musterlösung siehe Branch `feature/spring-boot-3-optimization` - basiert auf Branch `feature/spring-boot-3-mockmvc`)
-
-### 3. Cucumber
-
-Formuliere den REST API Test mithilfe der Gherkin-Syntax und implementiere einen entsprechenden Test.
-
-(Musterlösung siehe Branch `feature/spring-boot-2-cucumber` - basiert auf Branches `feature/spring-boot-2-optimization` und `feature/cucumber`)\
-(Musterlösung siehe Branch `feature/spring-boot-3-cucumber` - basiert auf Branches `feature/spring-boot-3-optimization` und `feature/cucumber`)
-
-### 4. Spock
-
-Implementiere den REST API Test mithilfe von Spock.
-
-(Musterlösung siehe Branch `feature/spring-boot-2-spock` - basiert auf Branch `feature/spring-boot-2-optimization` und `feature/spock`)\
-(Musterlösung siehe Branch `feature/spring-boot-3-spock` - basiert auf Branch `feature/spring-boot-3-optimization` und `feature/spock`)
-
-
+Alternativ kannst Du den Branch auch in den `main`-Branch mergen.
