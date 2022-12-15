@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class VendorUpdatedEventLogger {
 
     @EventListener(VendorUpdatedEvent.class)
-    void logEvent(VendorUpdatedEvent event) {
+    public void logEvent(VendorUpdatedEvent event) {
         log.info("Updated vendor: " + event.getVendor());
     }
 
