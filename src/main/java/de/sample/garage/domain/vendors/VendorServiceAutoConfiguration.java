@@ -1,7 +1,5 @@
-package de.sample.garage.domain.vendors.config;
+package de.sample.garage.domain.vendors;
 
-import de.sample.garage.domain.vendors.Vendor;
-import de.sample.garage.domain.vendors.VendorService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +12,7 @@ import java.util.stream.Stream;
 
 @Configuration
 @Slf4j
-public class VendorServiceConfiguration {
+public class VendorServiceAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
