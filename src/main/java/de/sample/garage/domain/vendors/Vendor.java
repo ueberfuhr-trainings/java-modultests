@@ -1,4 +1,4 @@
-package de.sample.garage.domain;
+package de.sample.garage.domain.vendors;
 
 import lombok.Builder;
 import lombok.Data;
