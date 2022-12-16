@@ -28,7 +28,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @DataJpaTest
 @ComponentScan(basePackageClasses = GarageJpaDataTest.class)
-@ActiveProfiles({"test", "jpa-test"})
+@ActiveProfiles({ "test", "jpa-test" })
 @Tag("integration-test")
 @Tag("jpa-test")
 public @interface GarageJpaDataTest {
