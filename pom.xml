@@ -21,7 +21,7 @@
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <cucumber.version>7.1.0</cucumber.version>
         <!-- executes JUnit 5 tests -->
-        <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
 		<jacoco-plugin.version>0.8.8</jacoco-plugin.version>
     </properties>
 
@@ -76,6 +76,17 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-spring</artifactId>
             <scope>test</scope>
+        </dependency>
+        <!-- Datenbank -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <!-- Treiber: nicht gegen diese API programmieren, erst zur Laufzeit benötigt -->
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

@@ -1,8 +1,9 @@
-package de.sample.garage.boundary;
+package de.sample.garage.boundary.vendors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.sample.garage.domain.Vendor;
-import de.sample.garage.domain.VendorService;
+import de.sample.garage.boundary.GarageApiTest;
+import de.sample.garage.domain.vendors.Vendor;
+import de.sample.garage.domain.vendors.VendorService;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -54,7 +55,7 @@ public class VendorApiDefinitions {
 
     @Before
     public void setup() {
-        lenient().when(service.findAll()).thenReturn(givenVendors);
+        lenient().when(service.findAll()).thenReturn(givenVendors.stream());
     }
 
     @Given("we have vendor {string} with name {string} and city {string}")

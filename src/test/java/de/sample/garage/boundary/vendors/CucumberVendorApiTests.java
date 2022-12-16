@@ -1,4 +1,4 @@
-package de.sample.garage.boundary;
+package de.sample.garage.boundary.vendors;
 
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.IncludeEngines;
@@ -12,8 +12,8 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @Suite
 @IncludeEngines("cucumber")
 @SuiteDisplayName("Cucumber API Tests")
-@SelectPackages({"de.sample.garage.boundary", "features.api"})
+@SelectPackages({"de.sample.garage.boundary.vendors", "features.api.vendors"})
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "de.sample.garage.boundary")
-public class CucumberApiTests {
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "de.sample.garage.boundary.vendors")
+public class CucumberVendorApiTests {
 }

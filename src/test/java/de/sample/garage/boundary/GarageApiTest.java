@@ -1,9 +1,10 @@
 package de.sample.garage.boundary;
 
-import de.sample.garage.domain.VendorService;
+import de.sample.garage.domain.vendors.VendorService;
 import org.junit.jupiter.api.Tag;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
@@ -14,8 +15,6 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import static org.mockito.Mockito.mock;
 
 /**
  * A test slice for API tests. Those tests share the same bean context,
@@ -35,23 +34,18 @@ import static org.mockito.Mockito.mock;
 @Target(ElementType.TYPE)
 @WebMvcTest
 @ComponentScan(basePackageClasses = GarageApiTest.class)
-@ActiveProfiles({"test", "api-test"})
+@ActiveProfiles({ "test", "api-test" })
 @Tag("integration-test")
 @Tag("api-test")
 @Import(GarageApiTest.MockDomainConfiguration.class)
 public @interface GarageApiTest {
 
-
-    // we don't need this because we use @Import
-    // @TestConfiguration
-    // @Profile("api-test")
+    @TestConfiguration
     class MockDomainConfiguration {
 
-        @Bean
-        VendorService vendorServiceMock() {
-            // be aware that this mock is strict, while @MockBean created mocks are lenient
-            return mock(VendorService.class);
-        }
+        // do not use mock() here directly, because @MockBean will register the mock for automatic reset
+        @MockBean
+        VendorService vendorService;
 
     }
 

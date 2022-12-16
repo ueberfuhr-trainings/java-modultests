@@ -1,13 +1,15 @@
-package de.sample.garage.domain.config;
+package de.sample.garage.devtools;
 
-import de.sample.garage.domain.Vendor;
-import de.sample.garage.domain.VendorService;
+import de.sample.garage.domain.vendors.Vendor;
+import de.sample.garage.domain.vendors.VendorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("dev")
 @RequiredArgsConstructor
 public class VendorSamplesInitializer {
 
@@ -15,7 +17,7 @@ public class VendorSamplesInitializer {
 
     @EventListener(ContextRefreshedEvent.class)
     public void initializeData() {
-        if (!service.containsData()) {
+        if (service.count() < 1) {
             service.save(
               Vendor.builder()
                 .shortName("FORD")
