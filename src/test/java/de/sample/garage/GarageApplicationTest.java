@@ -33,7 +33,7 @@ import java.lang.annotation.Target;
 // otherwise, it uses the file based
 // -> this would crash, when the app or another test is already running in parallel
 @AutoConfigureTestDatabase
-@ActiveProfiles({"test", "full-integration-test"})
+@ActiveProfiles({ "test", "full-integration-test" })
 @Tag("integration-test")
 @Tag("full-integration-test")
 public @interface GarageApplicationTest {
