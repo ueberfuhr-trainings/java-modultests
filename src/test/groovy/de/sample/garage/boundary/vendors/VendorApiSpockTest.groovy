@@ -1,8 +1,9 @@
-package de.sample.garage.boundary
+package de.sample.garage.boundary.vendors
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import de.sample.garage.domain.Vendor
-import de.sample.garage.domain.VendorService
+import de.sample.garage.boundary.GarageApiSpockTest
+import de.sample.garage.domain.vendors.Vendor
+import de.sample.garage.domain.vendors.VendorService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
@@ -28,7 +29,7 @@ class VendorApiSpockTest extends Specification {
     when:
       def response = mvc.perform request andReturn() response
     then:
-      1 * service.findAll() >> [sampleVendor]
+      1 * service.findAll() >> [sampleVendor].stream()
       response.status == 200
   }
 

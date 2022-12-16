@@ -1,10 +1,11 @@
 package de.sample.garage.boundary;
 
-import de.sample.garage.domain.VendorService;
+import de.sample.garage.domain.vendors.VendorService;
 import de.sample.garage.test.config.MockProvider;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Tag;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
@@ -34,17 +35,16 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @WebMvcTest
-@ComponentScan(basePackageClasses = { GarageApiTest.class, MockProvider.class })
+@ComponentScan(basePackageClasses = GarageApiTest.class)
 @ActiveProfiles({ "test", "api-test" })
 @Tag("integration-test")
 @Tag("api-test")
 @Import(GarageApiTest.MockDomainConfiguration.class)
 public @interface GarageApiTest {
 
-    // we don't need this because we use @Import
-    // @TestConfiguration
-    // @Profile("api-test")
     @RequiredArgsConstructor
+    @TestConfiguration
+    @ComponentScan(basePackageClasses = MockProvider.class)
     class MockDomainConfiguration {
 
         private final MockProvider mockProvider;
