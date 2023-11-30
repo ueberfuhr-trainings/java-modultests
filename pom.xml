@@ -19,7 +19,7 @@
 
     <properties>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
-        <cucumber.version>7.1.0</cucumber.version>
+        <cucumber.version>7.14.1</cucumber.version>
         <!-- executes JUnit 5 tests -->
         <jacoco-plugin.version>0.8.11</jacoco-plugin.version>
     </properties>
