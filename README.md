@@ -96,7 +96,7 @@ Implementiere die Tests für die `GearTransmission` und `Car` mithilfe von Spock
 ## Aufgabenstellungen (Spring Boot)
 
 Wechsle für die Erweiterung des Projektes und dieser Aufgabenstellung in einen der beiden Branches:
- - `feature/spring-boot-2` (Spring Boot 2, Java 11)
+ - `feature/spring-boot-2` (Spring Boot 2, Java 11 - nicht mehr aktualisiert)
  - `feature/spring-boot-3` (Spring Boot 3, Java 17) 
 
 Alternativ kannst Du den Branch auch in den `main`-Branch mergen.
