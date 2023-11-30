@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>
+        <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -18,10 +18,9 @@
     <name>Garage</name>
 
     <properties>
-        <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
+        <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <!-- executes JUnit 5 tests -->
-        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
-        <jacoco-plugin.version>0.8.8</jacoco-plugin.version>
+        <jacoco-plugin.version>0.8.11</jacoco-plugin.version>
     </properties>
 
     <dependencies>
