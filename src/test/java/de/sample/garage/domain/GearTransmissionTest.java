@@ -3,10 +3,12 @@ package de.sample.garage.domain;
 import de.sample.garage.domain.exception.ShiftNotPossibleException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class GearTransmissionTest {
 
@@ -14,15 +16,11 @@ class GearTransmissionTest {
 
     private final GearTransmission transmission = new GearTransmission(GearTransmissionTest.MAXGEAR);
 
-    @Test
-    @DisplayName("maximum gear must be greater than zero")
-    void shouldConstructorThrowIllegalArgumentException() {
-        assertAll(
-          () -> assertThatThrownBy(() -> new GearTransmission(-5))
-            .isInstanceOf(IllegalArgumentException.class),
-          () -> assertThatThrownBy(() -> new GearTransmission(0))
-            .isInstanceOf(IllegalArgumentException.class)
-        );
+    @ParameterizedTest(name = "maximum gear must be greater than zero (here: {0})")
+    @ValueSource(ints = { -5, 0 })
+    void shouldConstructorThrowIllegalArgumentException(int maxGear) {
+        assertThatThrownBy(() -> new GearTransmission(maxGear))
+          .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -55,6 +53,19 @@ class GearTransmissionTest {
         // again, to test that the exception is thrown repeatedly
         assertThatThrownBy(transmission::shiftUp)
           .isInstanceOf(ShiftNotPossibleException.class);
+    }
+
+    @ParameterizedTest(name = "Shifting up with maximum gears of {0}")
+    @ValueSource(ints = { 1, 3, 4, 5, 6, 7, 100 })
+    void testShiftingParameterized(int maxGears) throws ShiftNotPossibleException {
+        GearTransmission gt = new GearTransmission(maxGears);
+        for (int i = 1; i <= maxGears; i++) {
+            gt.shiftUp();
+            assertThat(gt)
+              .extracting(GearTransmission::getCurrentGear)
+              .isEqualTo(i);
+        }
+        assertThrows(ShiftNotPossibleException.class, gt::shiftUp);
     }
 
 }
