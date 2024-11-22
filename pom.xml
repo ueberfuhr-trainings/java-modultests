@@ -180,6 +180,22 @@
                 </pluginManagement>
             </build>
         </profile>
+        <!-- use mvn test -Ponly-perf-m -->
+        <profile>
+            <id>ci</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <configuration>
+                                <excludedGroups>inefficient</excludedGroups>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
     </profiles>
 
 </project>
