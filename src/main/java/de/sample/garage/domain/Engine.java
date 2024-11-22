@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class Engine {
 
     private static final Logger logger = Logger.getLogger(Engine.class
-            .getName());
+        .getName());
 
     private final double hp;
     private final Thread engineThread;
@@ -25,9 +25,9 @@ public class Engine {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         logger.log(
-                                Level.WARNING,
-                                this
-                                        + " is not working correctly at the moment! Stop the engine when this problem occurs again.");
+                            Level.WARNING,
+                            this
+                                + " is not working correctly at the moment! Stop the engine when this problem occurs again.");
                     }
                     logger.log(Level.INFO, this + " is currently running");
                 }
