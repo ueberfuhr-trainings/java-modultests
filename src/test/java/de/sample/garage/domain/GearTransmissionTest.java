@@ -4,10 +4,9 @@ import de.sample.garage.domain.exception.ShiftNotPossibleException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class GearTransmissionTest {
 
@@ -15,8 +14,10 @@ class GearTransmissionTest {
     @DisplayName("maximum gear must be greater than zero")
     void shouldConstructorThrowIllegalArgumentException() {
         assertAll(
-                () -> assertThrows(IllegalArgumentException.class, () -> new GearTransmission(-5)),
-                () -> assertThrows(IllegalArgumentException.class, () -> new GearTransmission(0))
+                () -> assertThatThrownBy(() -> new GearTransmission(-5))
+                        .isInstanceOf(IllegalArgumentException.class),
+                () -> assertThatThrownBy(() -> new GearTransmission(0))
+                        .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
@@ -25,8 +26,10 @@ class GearTransmissionTest {
     void shouldHaveCorrectInitialState() {
         final var transmission = new GearTransmission(6);
         assertAll(
-                () -> assertNull(transmission.getCurrentGear()),
-                () -> assertEquals(6, transmission.getMaxGear())
+                () -> assertThat(transmission.getCurrentGear())
+                        .isNull(),
+                () -> assertThat(transmission.getMaxGear())
+                        .isEqualTo(6)
         );
     }
 
@@ -36,7 +39,8 @@ class GearTransmissionTest {
         final var transmission = new GearTransmission(6);
         for (int i = 1; i <= transmission.getMaxGear(); i++) {
             transmission.shiftUp();
-            assertEquals(i, transmission.getCurrentGear());
+            assertThat(transmission.getCurrentGear())
+                    .isEqualTo(i);
         }
     }
 
@@ -47,9 +51,11 @@ class GearTransmissionTest {
         for (int i = 1; i <= transmission.getMaxGear(); i++) {
             transmission.shiftUp();
         }
-        assertThrows(ShiftNotPossibleException.class, transmission::shiftUp);
+        assertThatThrownBy(transmission::shiftUp)
+                .isInstanceOf(ShiftNotPossibleException.class);
         // again, to test that the exception is thrown repeatedly
-        assertThrows(ShiftNotPossibleException.class, transmission::shiftUp);
+        assertThatThrownBy(transmission::shiftUp)
+                .isInstanceOf(ShiftNotPossibleException.class);
     }
 
 }
