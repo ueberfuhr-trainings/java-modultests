@@ -2,41 +2,39 @@ package de.sample.garage.domain;
 
 import de.sample.garage.domain.errorhandling.ErrorHandler;
 import de.sample.garage.domain.exception.ShiftNotPossibleException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.lenient;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class CarTest {
 
-    // Mocks
+    @Mock
     Engine engine;
+    @Mock
     GearTransmission transmission;
+    @Mock
     GasTank tank;
+    @Mock
     Clutch clutch;
+    @Mock
     ErrorHandler errorHandler;
     // Class under Test
+    @InjectMocks
     Car car;
-
-    @BeforeEach
-    void setUp() {
-        engine = mock(Engine.class);
-        transmission = mock(GearTransmission.class);
-        tank = mock(GasTank.class);
-        clutch = mock(Clutch.class);
-        errorHandler = mock(ErrorHandler.class);
-        car = new Car(clutch, engine, tank, transmission, errorHandler);
-    }
 
     @Nested
     @DisplayName("fill-up tests")
