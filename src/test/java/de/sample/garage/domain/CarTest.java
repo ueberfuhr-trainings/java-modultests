@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.lenient;
@@ -108,6 +109,7 @@ class CarTest {
             doThrow(ShiftNotPossibleException.class).when(transmission).shiftUp();
             // act+assert
             assertThrows(ShiftNotPossibleException.class, car::shiftUp);
+            verify(errorHandler).handleError(any(ShiftNotPossibleException.class));
         }
 
     }
