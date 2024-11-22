@@ -89,4 +89,34 @@ _(Musterlösung siehe Branch `further/spock`)_
 
 ## 5. Spring Boot Tests
 
-Wechsle für die Erweiterung des Projektes und dieser Aufgabenstellung in den Branch `spring-boot/main`. Alternativ kannst Du diesen Branch auch in den `main`-Branch mergen.
+### 5.1. Integration und Isolation mit Spring Boot Tests
+
+Implementiere Tests für folgende Anforderungen. Entscheide, was integriert, und was isoliert (gemockt) getestet werden soll.
+
+- Nach dem Speichern eines `Vendor` (über REST API) besteht das Ergebnis der Abfrage aller Datensätze aus diesem einen.
+- Wenn der Service keinen `Vendor` findet, gibt es einen 404er Status Code zurück.
+- Der `shortName` des `Vendor` wird in snake_case (`short_name`) übertragen.
+- Wenn der Service einen `Vendor` speichert, wird ein `VendorUpdatedEvent` für diesen Vendor publiziert.
+- Wenn beim Persistenzieren des `Vendor` ein Fehler passiert, wird kein `VendorUpdatedEvent` publiziert.
+- Nach dem Speichern eines `Vendor` kann dieser in der Datenbank anhand des `shortName` ermittelt werden.
+
+_(Musterlösung siehe Branch `spring-boot/tests`)_
+
+### 5.2. Optimierung: Slices, Test Configurations und Meta Annotations
+
+Optimiere die Test-Performance, indem Du unnötige Kontexte vermeidest.\
+**Tip:** Erstelle für die zentrale Definition der Kontexte und deren Konfigurationen JUnit Meta-Annotationen.
+
+_(Musterlösung siehe Branch `spring-boot/optimization` - basiert auf Branch `spring-boot/tests`)_
+
+### 5.3. Cucumber
+
+Formuliere den REST-API Test-mithilfe der Gherkin-Syntax und implementiere einen entsprechenden Test.
+
+_(Musterlösung siehe Branch `spring-boot/cucumber` - basiert auf Branches `spring-boot/optimization` und `further/cucumber`)_
+
+### 5.4. Spock
+
+Implementiere den REST API Test mithilfe von Spock.
+
+_(Musterlösung siehe Branch `spring-boot/spock` - basiert auf Branch `spring-boot/optimization` und `further/spock`)_

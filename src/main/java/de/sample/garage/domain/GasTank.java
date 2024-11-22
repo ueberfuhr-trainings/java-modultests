@@ -21,7 +21,7 @@ public class GasTank {
     public void fillUp(double amountOfFuel) {
         if (!isAmountPossible(amountOfFuel)) {
             throw new AmountOfFuelNotPossibleException(amountOfFuel,
-                getCapacity());
+                    getCapacity());
         }
         logger.info("Filling up " + amountOfFuel + " litres of fuel.");
         fuel += amountOfFuel;
