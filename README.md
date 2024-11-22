@@ -19,7 +19,7 @@ zu wechseln und Musterlösungen anzuschauen, oder per `git merge` eine Musterlö
    und die Methode `shiftUp()`.
 2. Implementiere diese Testfälle.
 
-(Musterlösung siehe Branch `feature/test-simple` - basiert auf Branch `main`)
+(Musterlösung siehe Branch `feature/test-simple`)
 
 ### 2. AssertJ
 
@@ -30,7 +30,7 @@ Ersetze die bestehenden JUnit Assertions durch AssertJ Assertions. Worin besteht
 ### 3. Data Driven Test
 
 Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test.
-So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschalten werden.
+So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durchgeschaltet werden.
 
 (Musterlösung siehe Branch `feature/test-data-driven` - basiert auf Branch `feature/test-simple-assertj`)
 
@@ -42,16 +42,14 @@ So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durc
    (*Design for Test*)
 2. Leite für die Methode `fillUp(double)` Testfälle her und implementiere diese.
 
-(Musterlösung siehe Branch `feature/test-mockito` - basiert auf Branch `feature/test-simple-assertj`)
+(Musterlösung siehe Branch `feature/mocking`)
 
-### 5. JUnit 5 Extension
+### 5. Mockito ArgumentCaptor
 
-Implementiere eine JUnit 5 Extension, die vor und nach der Ausführung eines Tests einen
-Zeitstempel nimmt, und nach dem Test die Differenz auf die Konsole loggt. Stelle für das leichtere 
-Einbinden der Extension eine Meta Annotation bereit. Diese kann auf Methodenebene für einzelne Tests,
-aber auch auf Klassenebene für alle Testmethoden verwendet werden.
+Schreibe einen Test für `GasStationAttendant`, bei dem sichergestellt wird, dass bei schrittweisem Auffülen des `Car` in Summe
+die gewünschte Füllmenge erreicht wird.
 
-(Musterlösung siehe Branch `feature/extension` - basiert auf Branch `feature/test-simple`)
+(Musterlösung siehe Branch `feature/argument-captor` - basiert auf Branch `main`)
 
 ### 6. JUnit 5 Tags
 
@@ -65,7 +63,7 @@ mvn clean test -Dgroups=perf-m
 mvn clean test -DexcludedGroups=perf-m
 ```
 
-Optional: Ergänze ein Profil `only-perf-m` in der `pom.xml` für die einfachere Ausführung per 
+Optional: Ergänze ein Profil `only-perf-m` in der `pom.xml` für die einfachere Ausführung per
 
 ```bash
 mvn clean test -Ponly-perf-m
@@ -73,12 +71,16 @@ mvn clean test -Ponly-perf-m
 
 (Musterlösung siehe Branch `feature/tags` - basiert auf Branch `feature/extension`)
 
-### 7. Mockito ArgumentCaptor
+### 7. JUnit 5 Extension
 
-Schreibe einen Test für `GasStationAttendant`, bei dem sichergestellt wird, dass bei schrittweisem Auffülen des `Car` in Summe
-die gewünschte Füllmenge erreicht wird.
+Nutze die Mockito-Extension, um Mocks zu erzeugen.
 
-(Musterlösung siehe Branch `feature/argument-captor` - basiert auf Branch `main`)
+Implementiere eine eigene JUnit 5 Extension, die vor und nach der Ausführung eines Tests einen
+Zeitstempel nimmt, und nach dem Test die Differenz auf die Konsole loggt. Stelle für das leichtere 
+Einbinden der Extension eine Meta Annotation bereit. Diese kann auf Methodenebene für einzelne Tests,
+aber auch auf Klassenebene für alle Testmethoden verwendet werden.
+
+(Musterlösung siehe Branch `feature/extension` - basiert auf Branches `feature/test-simple` und `feature/mocking`)
 
 ### 8. Cucumber
 
@@ -91,12 +93,9 @@ mithilfe von Cucumber.
 
 Implementiere die Tests für die `GearTransmission` und `Car` mithilfe von Spock (Groovy).
 
-(Musterlösung siehe Branch `feature/spock` - basiert auf Branch `feature/test-mockito` und `feature/test-data-driven`)
+(Musterlösung siehe Branch `feature/spock` - basiert auf Branch `feature/mocking` und `feature/test-data-driven`)
 
 ## Aufgabenstellungen (Spring Boot)
 
-Wechsle für die Erweiterung des Projektes und dieser Aufgabenstellung in einen der beiden Branches:
- - `feature/spring-boot-2` (Spring Boot 2, Java 11 - nicht mehr aktualisiert)
- - `feature/spring-boot-3` (Spring Boot 3, Java 17) 
-
-Alternativ kannst Du den Branch auch in den `main`-Branch mergen.
+Wechsle für die Erweiterung des Projektes und dieser Aufgabenstellung in den Branches
+`feature/spring-boot`. Alternativ kannst Du diesen Branch auch in den `main`-Branch mergen.

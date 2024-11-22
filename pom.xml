@@ -12,15 +12,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <!-- same versions as latest Spring Boot 2.x version (2.7.6) -->
-        <mockito.version>5.7.0</mockito.version>
-        <junit.version>5.10.1</junit.version>
-        <assertj.version>3.24.2</assertj.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <mockito.version>5.14.2</mockito.version>
+        <junit.version>5.11.3</junit.version>
+        <assertj.version>3.26.3</assertj.version>
         <!-- executes JUnit 5 tests -->
-        <surefire-plugin.version>3.2.2</surefire-plugin.version>
-		<jacoco-plugin.version>0.8.11</jacoco-plugin.version>
+        <surefire-plugin.version>3.5.2</surefire-plugin.version>
+		<jacoco-plugin.version>0.8.12</jacoco-plugin.version>
     </properties>
 
     <dependencyManagement>

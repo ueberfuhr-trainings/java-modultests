@@ -8,19 +8,19 @@ import de.sample.garage.domain.exception.ShiftNotPossibleException;
  */
 public class Car {
 
-    private Clutch clutch;
-    private Engine engine;
-    private GasTank gastank;
-    private GearTransmission geartransmission;
+    private final Clutch clutch;
+    private final Engine engine;
+    private final GasTank gastank;
+    private final GearTransmission geartransmission;
 
     /**
      * Constructor.
      */
     public Car() {
+        clutch = new Clutch();
         engine = new Engine();
         gastank = new GasTank(55.0);
         geartransmission = new GearTransmission(2);
-        clutch = new Clutch();
     }
 
     Car(Clutch clutch, Engine engine, GasTank gastank, GearTransmission geartransmission) {
@@ -61,22 +61,6 @@ public class Car {
 
     public GearTransmission getGeartransmission() {
         return geartransmission;
-    }
-
-    public void setClutch(Clutch clutch) {
-        this.clutch = clutch;
-    }
-
-    public void setEngine(Engine engine) {
-        this.engine = engine;
-    }
-
-    public void setGastank(GasTank gastank) {
-        this.gastank = gastank;
-    }
-
-    public void setGeartransmission(GearTransmission geartransmission) {
-        this.geartransmission = geartransmission;
     }
 
     /**
