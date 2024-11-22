@@ -49,7 +49,7 @@ So soll nicht nur für einen maximalen Gang, sondern für mehrere testweise durc
 Schreibe einen Test für `GasStationAttendant`, bei dem sichergestellt wird, dass bei schrittweisem Auffülen des `Car` in Summe
 die gewünschte Füllmenge erreicht wird.
 
-(Musterlösung siehe Branch `feature/argument-captor` - basiert auf Branch `main`)
+(Musterlösung siehe Branch `feature/argument-captor`)
 
 ### 6. JUnit 5 Tags
 
