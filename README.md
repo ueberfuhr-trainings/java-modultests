@@ -15,10 +15,10 @@ Verfügung. Du kannst diese Lösungen anschauen bzw. in den `main`-Branch mergen
 
 #### 1.1. Ein erster Modultest
 
-1. Öffne die Klasse `GearTransmission`. Ermittle Testfälle für den Konstruktor und die Methode `shiftUp()`.
-2. Implementiere diese Testfälle.
+Öffne die Klasse `GearTransmission`. Ermittle Testfälle für den Konstruktor und die Methode `shiftUp()`.
+Implementiere diese Testfälle.
 
-(Musterlösung siehe Branch `junit/simple`)
+_(Musterlösung siehe Branch `junit/simple`)_
 
 #### 1.2. AssertJ
 
@@ -38,10 +38,9 @@ Erweitere die Testklasse für `GearTransmission` um einen parametrisierten Test.
 
 #### 2.1. Mocking
 
-1. Öffne die Klasse `Car`. Diese hat Abhängigkeiten zu `GearTransmission`, `Engine`, `Clutch` und `GasTank`. Beachte den
-   Konstruktor, mit dem diese Abhängigkeiten von außen übergeben werden können. Dieser ist hilfreich für bessere
-   Testbarkeit. (*Design for Test*)
-2. Leite für die Methode `fillUp(double)` Testfälle her und implementiere diese.
+Öffne die Klasse `Car`. Diese hat Abhängigkeiten zu `GearTransmission`, `Engine`, `Clutch` und `GasTank`. Beachte den
+Konstruktor, mit dem diese Abhängigkeiten von außen übergeben werden können. Dieser ist hilfreich für bessere
+Testbarkeit. (*Design for Test*) Leite für die Methode `fillUp(double)` Testfälle her und implementiere diese.
 
 (Musterlösung siehe Branch `mockito/mocking`)
 
