@@ -7,9 +7,9 @@ import javax.swing.*;
  */
 public class ErrorHandler {
 
-    public static void handleError(Throwable e) {
+    public void handleError(Throwable e) {
         JOptionPane.showMessageDialog(null, e.getMessage(), "Error",
-            JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
     }
 
 }

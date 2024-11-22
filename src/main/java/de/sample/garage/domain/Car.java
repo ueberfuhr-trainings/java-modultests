@@ -12,6 +12,7 @@ public class Car {
     private final Engine engine;
     private final GasTank gastank;
     private final GearTransmission geartransmission;
+    private final ErrorHandler errorHandler;
 
     /**
      * Constructor.
@@ -21,14 +22,16 @@ public class Car {
         engine = new Engine();
         gastank = new GasTank(55.0);
         geartransmission = new GearTransmission(2);
+        errorHandler = new ErrorHandler();
     }
 
-    Car(Clutch clutch, Engine engine, GasTank gastank, GearTransmission geartransmission) {
+    Car(Clutch clutch, Engine engine, GasTank gastank, GearTransmission geartransmission, ErrorHandler errorHandler) {
         super();
         this.clutch = clutch;
         this.engine = engine;
         this.gastank = gastank;
         this.geartransmission = geartransmission;
+        this.errorHandler = errorHandler;
     }
 
     /**
@@ -78,7 +81,8 @@ public class Car {
         try {
             geartransmission.shiftUp();
         } catch (ShiftNotPossibleException e) {
-            ErrorHandler.handleError(e);
+            errorHandler.handleError(e);
+            throw e;
         }
     }
 
@@ -86,7 +90,7 @@ public class Car {
      * Drives the car.
      */
     public void drive() {
-        if (gastank.isEmpty() && !engine.isEngineStarted()) {
+        if (!gastank.isEmpty() && !engine.isEngineStarted()) {
             engine.start();
         }
     }
