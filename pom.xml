@@ -17,9 +17,9 @@
         <mockito.version>5.14.2</mockito.version>
         <junit.version>5.11.3</junit.version>
         <assertj.version>3.26.3</assertj.version>
-        <!-- executes JUnit 5 tests -->
-        <surefire-plugin.version>3.5.2</surefire-plugin.version>
-        <jacoco-plugin.version>0.8.12</jacoco-plugin.version>
+        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+        <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
+        <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -102,17 +102,35 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${surefire-plugin.version}</version>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <configuration>
+                        <argLine>@{argLine} -javaagent:${org.mockito:mockito-core:jar}</argLine>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco-plugin.version}</version>
+                    <version>${jacoco-maven-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${maven-dependency-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
