@@ -34,8 +34,7 @@ public class Car {
     /**
      * Fills up the tank.
      *
-     * @param amountOfFuel
-     *            the amount of fuel.
+     * @param amountOfFuel the amount of fuel.
      */
     public void fillUp(double amountOfFuel) {
         if (engine.isEngineStarted()) {
@@ -68,10 +67,8 @@ public class Car {
      * so the first invocation of this method will lead to the car being in the
      * first gear.
      *
-     * @throws IllegalStateException
-     *             if the clutch is not pressed
-     * @throws ShiftNotPossibleException
-     *             if the car is already in the maximum gear
+     * @throws IllegalStateException     if the clutch is not pressed
+     * @throws ShiftNotPossibleException if the car is already in the maximum gear
      */
     public void shiftUp() throws IllegalStateException, ShiftNotPossibleException {
         if (!clutch.isPressed()) {

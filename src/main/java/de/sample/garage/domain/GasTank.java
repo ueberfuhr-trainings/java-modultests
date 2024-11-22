@@ -1,8 +1,8 @@
 package de.sample.garage.domain;
 
-import java.util.logging.Logger;
-
 import de.sample.garage.domain.exception.AmountOfFuelNotPossibleException;
+
+import java.util.logging.Logger;
 
 /**
  * A gas tank.
@@ -21,7 +21,7 @@ public class GasTank {
     public void fillUp(double amountOfFuel) {
         if (!isAmountPossible(amountOfFuel)) {
             throw new AmountOfFuelNotPossibleException(amountOfFuel,
-              getCapacity());
+                getCapacity());
         }
         logger.info("Filling up " + amountOfFuel + " litres of fuel.");
         fuel += amountOfFuel;

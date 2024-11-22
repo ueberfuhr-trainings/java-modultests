@@ -5,18 +5,18 @@ package de.sample.garage.domain.exception;
  */
 public class DistanceNotPossibleException extends RuntimeException {
 
-	private final int distance;
+    private final int distance;
 
-	/**
-	 * Constructor.
-	 */
-	public DistanceNotPossibleException(int distance) {
-		super("Driving the distance is not possible!");
-		this.distance = distance;
-	}
+    /**
+     * Constructor.
+     */
+    public DistanceNotPossibleException(int distance) {
+        super("Driving the distance is not possible!");
+        this.distance = distance;
+    }
 
-	public int getDistance() {
-		return distance;
-	}
+    public int getDistance() {
+        return distance;
+    }
 
 }
