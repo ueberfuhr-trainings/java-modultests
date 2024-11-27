@@ -1,15 +1,12 @@
 package de.sample.garage.vendors.boundary;
 
+import de.sample.garage.test.slices.VendorBoundaryTest;
 import de.sample.garage.vendors.domain.Vendor;
 import de.sample.garage.vendors.domain.VendorService;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Optional;
@@ -25,14 +22,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-// otherwise, it uses the file based
-// -> this would crash, when the app or another test is already running in parallel
-@AutoConfigureTestDatabase
+@VendorBoundaryTest
 class VendorApiMockedServiceTests {
 
-    @MockitoBean
+    @Autowired // Mock
     VendorService service;
 
     @Autowired
