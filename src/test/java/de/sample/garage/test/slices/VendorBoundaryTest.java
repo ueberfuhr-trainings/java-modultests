@@ -1,5 +1,6 @@
 package de.sample.garage.test.slices;
 
+import de.sample.garage.test.config.MockProvider;
 import de.sample.garage.vendors.boundary.VendorController;
 import de.sample.garage.vendors.domain.VendorService;
 import org.junit.jupiter.api.Tag;
@@ -9,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.bean.override.mockito.MockReset;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -17,9 +17,6 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import static org.mockito.Mockito.mock;
-import static org.springframework.test.context.bean.override.mockito.MockReset.withSettings;
 
 /**
  * A test slice for API tests. Those tests share the same bean context,
@@ -46,13 +43,13 @@ import static org.springframework.test.context.bean.override.mockito.MockReset.w
 public @interface VendorBoundaryTest {
 
     @TestConfiguration
+    @ComponentScan(basePackageClasses = MockProvider.class)
     class MockDomainConfiguration {
 
         @Bean
-        VendorService vendorServiceMock() {
-            return mock(
-                VendorService.class,
-                withSettings(MockReset.AFTER)
+        VendorService vendorServiceMock(MockProvider mockProvider) {
+            return mockProvider.mock(
+                VendorService.class
             );
         }
 

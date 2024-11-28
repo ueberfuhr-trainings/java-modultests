@@ -20,7 +20,8 @@
     <properties>
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
-        <spock.version>2.3-groovy-4.0</spock.version>
+        <!-- https://github.com/spockframework/spock/issues/1539 -->
+        <spock.version>2.4-M1-groovy-4.0</spock.version>
         <groovy.version>4.0.24</groovy.version>
         <gmavenplus-plugin.version>4.0.1</gmavenplus-plugin.version>
     </properties>
@@ -68,8 +69,19 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <!-- Treiber: nicht gegen diese API programmieren, erst zur Laufzeit benötigt -->
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
             <groupId>org.spockframework</groupId>
             <artifactId>spock-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-spring</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -97,17 +109,6 @@
                         <phase>prepare-package</phase>
                         <goals>
                             <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>properties</goal>
                         </goals>
                     </execution>
                 </executions>

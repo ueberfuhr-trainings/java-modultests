@@ -15,7 +15,7 @@ public class VendorServiceEventsTest {
 
     @Autowired
     VendorService service;
-    @Autowired // Mopck
+    @Autowired // Mock
     VendorService.VendorSink sink;
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
